@@ -12,7 +12,7 @@ Hosted here: https://main.d1wy1f7j4oet6o.amplifyapp.com/
 ## **Technologies used**
 * React (JSX, HTML, JavaScript, CSS)
 * Hosted on AWS Amplify
-* Favicon created on Stable Diffusion
+* Favicon created using Stable Diffusion
 
 ## **Note**
 I initially started coding in this repo: https://github.com/simon0h/Bill-Splitter-Old, but the package-lock.json file had a lot of out of date dependencies and I was getting a lot of spooky vulnerability alerts from Dependabot. But I couldn't figure out how to update them, so I just said fuck it and created a new repo, copied over all the code, and changed its name to "Old". This one doesn't have any Dependabot alerts, so I guess that worked ¯\\_(ツ)_/¯
