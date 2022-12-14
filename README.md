@@ -9,5 +9,6 @@ To do's can be found in the Issues tab.
 
 ## **Technologies used**
 This web app uses:
-* React
-* Hosted on Amazon Amplify
+* React (JSX, HTML, JavaScript, CSS)
+* Hosted on AWS Amplify
+* Favicon by Stable Diffusion
