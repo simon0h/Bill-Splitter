@@ -1,0 +1,8 @@
+.calculateCosts {
+	font-size: 1.3em;
+	min-width: 100px;
+	width: fit-content;
+	margin: auto;
+	margin-top: 23px;
+	text-align: right;
+}

@@ -1,0 +1,35 @@
+.dividedCosts {
+	margin-top: 40px;
+}
+
+li {
+	list-style-type: none;
+	margin-top: 5px;
+}
+
+.moreDetail button{
+	background-color: rgb(248, 144, 68);
+	border-radius: 6px;
+	color: white;
+	display: inline-block;
+	border: none;
+	font-size: 1.4em;
+	margin-top: 10px;
+	margin-bottom: 8px;
+	padding-top: 1px;
+	padding-bottom: 1px;
+	padding-left: 7px;
+	padding-right: 7px;
+	cursor: pointer;
+	height: 1em;
+}
+
+.moreDetail button:hover{
+	box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+	background-color: rgb(220, 93, 0);
+}
+
+.ate {
+	margin-top: 10px;
+	margin-bottom: 15px;
+}

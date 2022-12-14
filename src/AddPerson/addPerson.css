@@ -1,0 +1,52 @@
+.addPerson {
+	text-align: left;
+	margin-left: auto;
+	margin-right: auto;
+	width: 12em;
+}
+
+.addPersonTitle {
+	font-size: 1.4em;
+	margin-top: 40px;
+	margin-bottom: 12px;
+	font-weight: bold;
+}
+
+.addPersonInputField {
+	font-size: 1.1em;
+}
+
+.addPersonInputField label{
+	display: inline-block;
+	text-align: left;
+}
+
+.addPersonInputField input{
+	display: inline-block;
+	text-align: left;
+	margin-left: 1%;
+	width: 11.8em;
+}
+
+.addPersonButton button {
+	background-color: rgb(77, 191, 98);
+	border-radius: 6px;
+	color: white;
+	display: inline-block;
+	border: none;
+	font-size: 1.2em;
+	margin-top: 10px;
+	margin-bottom: 8px;
+	padding-top: 7px;
+	padding-bottom: 4px;
+	padding-left: 12px;
+	padding-right: 12px;
+	cursor: pointer;
+	position: relative;
+	left: 38%;
+}
+
+.addPersonButton button:hover {
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+  background-color: rgb(26, 126, 44);
+}

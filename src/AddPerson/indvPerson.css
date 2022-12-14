@@ -1,0 +1,68 @@
+.indvPerson {
+	/* background-color: rgb(222, 222, 222); */
+	border: 3px solid rgb(222, 222, 222);
+	border-radius: 6px;
+	width: fit-content;
+	text-align: center;
+	margin: auto;
+	margin-top: 23px;
+	margin-bottom: 9px;
+	font-size: 1.3em;
+	min-width: 100px;
+	padding-bottom: 37px;
+	animation: fade 1.5s linear;
+}
+
+@keyframes fade {
+	0% { opacity: 0 }
+	100% { opacity: 1 }
+}
+
+.name {
+	border-top-left-radius: 6px;
+	border-top-right-radius: 6px;
+	padding-left: 1.5em;
+	padding-right: 1.5em;
+	padding-top: 1.2em;
+	padding-bottom: 0.2em;
+	height: fit-content;
+	font-weight: 600;
+}
+
+.actionButtons {
+	margin-top: 10px;
+}
+
+.remove button {
+	background-color: inherit;
+	color: rgb(250, 60, 60);
+	display: inline-block;
+	border: none;
+	font-size: 0.9em;
+	padding-top: 0.2em;
+	padding-bottom: 1px;
+	padding-left: 0.6em;
+	float: left;
+	cursor: pointer;
+}
+
+.remove button:hover {
+	color: rgb(203, 0, 0);
+}
+
+.edit button {
+	background-color: inherit;
+	color: rgb(66, 114, 221);
+	display: inline-block;
+	border: none;
+	font-size: 0.9em;
+	padding-top: 0.2em;
+	padding-bottom: 1px;
+	padding-right: 0.6em;
+	float: right;
+	cursor: pointer;
+}
+
+.edit button:hover {
+	color: blue;
+}

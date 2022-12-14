@@ -1,0 +1,132 @@
+.indvItem {
+	border: 3px solid rgb(222, 222, 222);
+	border-radius: 6px;
+	width: fit-content;
+	text-align: center;
+	margin: auto;
+	margin-top: 23px;
+	margin-bottom: 10px;
+	font-size: 1.3em;
+	min-width: 100px;
+	animation: fade 1.5s linear;
+}
+
+@keyframes fade {
+	0% { opacity: 0 }
+	100% { opacity: 1 }
+}
+
+.indvItemMore {
+	background-color: rgb(222, 222, 222);
+	border-radius: 6px;
+	width: fit-content;
+	text-align: center;
+	margin: auto;
+	margin-top: 23px;
+	margin-bottom: 40px;
+	font-size: 1.3em;
+	padding-bottom: 40px;
+	min-width: 100px;
+}
+
+.name {
+	border-top-left-radius: 6px;
+	border-top-right-radius: 6px;
+	padding-left: 1.5em;
+	padding-right: 1.5em;
+	padding-top: 1.2em;
+	padding-bottom: 0.2em;
+	height: fit-content;
+	font-weight: 600;
+}
+
+.price {
+	padding-bottom: 0.6em;
+}
+
+.more button {
+	background-color: inherit;
+	color: rgb(86, 85, 85);
+	display: inline-block;
+	border: none;
+	font-size: 1.2em;
+	margin-top: 6px;
+	margin-bottom: 6px;
+	padding: 0px;
+	text-align: center;
+	cursor: pointer;
+	outline: none;
+}
+
+.more button:hover {
+	color: rgb(24, 24, 24);
+	height: 1em;
+	width: 1em;
+	border-radius: 50%;
+	background-color: rgb(195, 195, 195);
+	margin-bottom: 11px;
+	box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+.less button {
+	background-color: inherit;
+	border-radius: 6px;
+	color: rgb(86, 85, 85);
+	display: inline-block;
+	border: none;
+	font-size: 1.3em;
+	margin-top: 5px;
+	margin-bottom: 1px;
+	padding: 0px;
+	text-align: center;
+	cursor: pointer;
+}
+
+.less button:hover {
+	color: rgb(24, 24, 24);
+	height: 1em;
+	width: 1em;
+	border-radius: 50%;
+	background-color: rgb(195, 195, 195);
+	margin-bottom: 7px;
+	box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+	font-weight: bold;
+}
+
+.actionButtons {
+	margin-top: 5px;
+}
+
+.remove button {
+	background-color: inherit;
+	color: rgb(250, 60, 60);
+	display: inline-block;
+	border: none;
+	font-size: 0.9em;
+	padding-top: 0.2em;
+	padding-bottom: 3px;
+	padding-left: 0.6em;
+	float: left;
+	cursor: pointer;
+}
+
+.remove button:hover {
+	color: rgb(203, 0, 0);
+}
+
+.edit button {
+	background-color: inherit;
+	color: rgb(66, 114, 221);
+	display: inline-block;
+	border: none;
+	font-size: 0.9em;
+	padding-top: 0.2em;
+	padding-bottom: 3px;
+	padding-right: 0.6em;
+	float: right;
+	cursor: pointer;
+}
+
+.edit button:hover {
+	color: blue;
+}
