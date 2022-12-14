@@ -7,7 +7,7 @@ I wanted to learn React, and I've always wanted to build a bill splitter that wo
 
 To do's can be found in the Issues tab.
 
-Hosted here: https://main.d35vpaxee3fzyl.amplifyapp.com
+Hosted here: https://main.d1wy1f7j4oet6o.amplifyapp.com/
 
 ## **Technologies used**
 This web app uses:
