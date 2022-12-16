@@ -8,13 +8,14 @@ const AddTaxTip = (props) => {
 
 	const[taxButtonColor_Percent, setTaxButtonColor_Percent] = useState(props.inputTaxAsPercent);
 	const[tipButtonColor_Percent, setTipButtonColor_Percent] = useState(props.inputTipAsPercent);
-	
+
 	const [isAlertVisible, setIsAlertVisible] = useState(false);
 
 	const taxChangeHandler = (event) => {
 		if (event.target.value < 0) {
 			window.alert("Tax cannot be negative");
 			setTax("");
+			event.target.value = 0;
 		}
 		else {
 			setTax(Math.floor(event.target.value * 100) / 100); // Truncating past two decimal points
@@ -76,7 +77,7 @@ const AddTaxTip = (props) => {
 		}
 		return ("Enter by percentage instead");
 	}
-	
+
 	const handleButtonClick = () => {
 		setIsAlertVisible(true);
 		setTimeout(() => {
@@ -97,10 +98,11 @@ const AddTaxTip = (props) => {
 				<div className = "addTaxTipInputField">
 					<label>Tax: </label>
 					<input
-						type = "number"	
+						type = "number"
 						onChange = {taxChangeHandler}
 						placeholder = {" " + taxLabel()[0] + tax + taxLabel()[1]}
 						inputMode = "decimal"
+						step="0.01"
 					/>
 					<div className = "textAndToggle">
 						<div className = "toggleLable">Enter by amount </div>
@@ -116,7 +118,9 @@ const AddTaxTip = (props) => {
 						type = "number"
 						onChange = {tipChangeHandler}
 						placeholder = {" " + tipLabel()[0] + tip + tipLabel()[1]}
-						inputMode = "decimal"/>
+						inputMode = "decimal"
+						step="0.01"
+					/>
 					<div className = "textAndToggle">
 						<div className = "toggleLable">Enter by amount </div>
 						<label className="switch">

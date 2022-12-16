@@ -6,3 +6,15 @@
 	margin-top: 23px;
 	text-align: right;
 }
+
+.cost {
+	font-size: 1.2em;
+	font-weight: 500;
+	margin-top: 30px;
+}
+
+.subtotal {
+	font-size: 1.2em;
+	font-weight: 800;
+	margin-top: 17px;
+}

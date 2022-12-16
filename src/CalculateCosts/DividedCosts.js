@@ -153,7 +153,7 @@ const DividedCosts = (props) => {
 			<div className = "dividedCosts">
 				{thisPersonOwes && thisPersonOwes.map((person) => (
 					<li key = {person.id}>
-						<div>{person.name} owes ${person.owes}</div>
+						<div className = "personOwes">{person.name} owes ${person.owes}</div>
 					</li>)
 				)}
 				<div className = "moreDetail">
@@ -168,13 +168,17 @@ const DividedCosts = (props) => {
 			<div className = "dividedCosts">
 				{thisPersonOwes && thisPersonOwes.map((person) => (
 					<li key = {person.id}>
-						<div>{person.name} owes ${person.owes}</div>
+						<div className = "personOwes">{person.name} owes ${person.owes}</div>
 					</li>)
 				)}
+				<div className = "moreDetail">
+					<button onClick = {showMore}><BiChevronUp/></button>
+				</div>
 				{thisPersonOwesDetail && thisPersonOwesDetail.map((person) => (
 					<li key = {person.id}>
 						<div className = "ate">
-							<div>Details for {person.name}:</div>
+							<div className = "detailHeader">Details for {person.name}:</div>
+							<hr/>
 							<div> {person.items && person.items.map((itemID) => (
 								<ul key = {person.id + person.name + itemID}>
 									<div>{itemObject[itemID][0]}: ${itemObject[itemID][1] / sharedItems[itemID]}</div>
@@ -186,9 +190,6 @@ const DividedCosts = (props) => {
 						</div>
 					</li>)
 				)}
-				<div className = "moreDetail">
-					<button onClick = {showMore}><BiChevronUp/></button>
-				</div>
 			</div>
 		);
 	}

@@ -14,7 +14,8 @@ const AddItem = (props) => {
 	const itemPriceChangeHandler = (event) => {
 		if (event.target.value < 0) {
 			window.alert("Item price cannot be negative");
-			setItemPrice(0);
+			setItemPrice("");
+			event.target.value = 0;
 		}
 		else {
 			setItemPrice(Math.floor(event.target.value * 100) / 100); // Truncating past two decimal points
@@ -51,7 +52,7 @@ const AddItem = (props) => {
 					<label>Name: </label>
 					<input
 						type = "text"
-						value = {itemName}
+						// value = {itemName}
 						onChange = {itemNameChangeHandler}
 						placeholder = {" Item" + props.itemID}
 					/>
@@ -60,10 +61,11 @@ const AddItem = (props) => {
 					<label>Price: </label>
 					<input
 						type = "number"
-						value = {itemPrice}
+						// value = {itemPrice}
 						onChange = {itemPriceChangeHandler}
 						placeholder = {" $0"}
 						inputMode = "decimal"
+						step="0.01"
 					/>
 				</div>
 				<div className = "addItemButton">

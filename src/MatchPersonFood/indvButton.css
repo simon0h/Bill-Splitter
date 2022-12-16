@@ -52,6 +52,7 @@
 	margin-top: 19px;
 	text-align: center;
 	padding: 7px;
+	color: black;
 }
 
 .notSelected button:hover {
@@ -71,6 +72,7 @@
 	margin-top: 19px;
 	text-align: center;
 	padding: 7px;
+	color: black;
 }
 
 .selected button:hover {
