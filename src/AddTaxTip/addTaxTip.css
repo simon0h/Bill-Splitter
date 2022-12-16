@@ -114,7 +114,7 @@ input:checked + .slider:before {
     border-radius: 50%;
 }
 
-.alert-container {
+.alertContainer {
     position: absolute;
     top: 2rem;
     left: 0;
@@ -124,7 +124,7 @@ input:checked + .slider:before {
     animation: fadeinout 1.5s linear forwards;
 }
 
-.alert-inner {
+.alertInner {
     display: inline-block;
     padding: 8px 16px;
     border-radius: 6px;

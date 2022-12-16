@@ -67,10 +67,20 @@ const CalculateCosts = (props) => {
 	const showPercentage = (type) => {
 		let percentage = "";
 		if (type === "tax") {
-			percentage = " (" + props.taxTip.tax + "% of the total price)";
+			if (props.taxTip.tax <= 0 || (props.totalFoodCost === 0 && props.inputTaxAsPercent)) {
+				percentage = "";
+			}
+			else {
+				percentage = " (" + Math.floor(100 * props.taxTip.tax / props.totalFoodCost) + "%)";
+			}
 		}
 		else {
-			percentage = " (" + props.taxTip.tip + "% of the total price)";
+			if (props.taxTip.tip <= 0 || (props.totalFoodCost === 0 && props.inputTipAsPercent)) {
+				percentage = "";
+			}
+			else {
+				percentage = " (" + Math.floor(100 * props.taxTip.tip / props.totalFoodCost) + "%)";
+			}
 		}
 		return(percentage);
 	}

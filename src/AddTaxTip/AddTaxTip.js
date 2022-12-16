@@ -26,6 +26,7 @@ const AddTaxTip = (props) => {
 		if (event.target.value < 0) {
 			window.alert("Tip cannot be negative");
 			setTip("");
+			event.target.value = 0;
 		}
 		else {
 			setTip(Math.floor(event.target.value * 100) / 100); // Truncating past two decimal points
@@ -132,8 +133,8 @@ const AddTaxTip = (props) => {
 				<div className = "save">
 					<button onClick = {handleButtonClick} type = "submit"><FaSave/></button>
 				</div>
-				{isAlertVisible && <div className='alert-container'>
-					<div className='alert-inner'>Saved</div>
+				{isAlertVisible && <div className = "alertContainer">
+					<div className = "alertInner">Saved</div>
 				</div>}
 			</form>
 		</div>

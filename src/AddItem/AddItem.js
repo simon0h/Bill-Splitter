@@ -49,12 +49,15 @@ const AddItem = (props) => {
 			<div className = "addItemTitle">Add a new item</div>
 			<form onSubmit = {submitHandler}>
 				<div className = "addItemInputField">
-					<label>Name: </label>
+					<label>Item: </label>
 					<input
 						type = "text"
 						// value = {itemName}
 						onChange = {itemNameChangeHandler}
 						placeholder = {" Item" + props.itemID}
+						autocapitalize = "off"
+						autocomplete = "off"
+						autocorrect = "off"
 					/>
 				</div>
 				<div className = "addItemInputField">

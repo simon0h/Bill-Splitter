@@ -31,7 +31,7 @@ const AddPerson = (props) => {
 			<div className = "addPersonTitle">Add a new person</div>
 			<form onSubmit = {submitHandler}>
 				<div className = "addPersonInputField">
-					<label>Person Name</label>
+					<label>Person:</label>
 					<input
 						type = "text"
 						value = {personName}

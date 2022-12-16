@@ -32,6 +32,8 @@ const App = () => {
 	const[splitTipEvenly, setSplitTipEvenly] = useState(true);
 	const[splitTaxEvenly, setSplitTaxEvenly] = useState(true);
 
+	const [isAlertVisible, setIsAlertVisible] = useState(false);
+
 	const addNewItem = (newItem) => {
 		setTotalCost(totalFoodCost + newItem.price);
 		setNumItems(numItems + 1);
@@ -130,6 +132,13 @@ const App = () => {
 		setScreen(screen + 1);
 	}
 
+	const handleAboutClick = () => {
+		setIsAlertVisible(!isAlertVisible);
+		// setTimeout(() => {
+		// 	setIsAlertVisible(false);
+		// }, 1800);
+	}
+
 	if (screen === 0) {
 		return (
 	    	<div className="App">
@@ -154,6 +163,18 @@ const App = () => {
 				<div className = "singleButton">
 	    			<button type = "submit" onClick = {nextScreen}><FaArrowRight/></button>
 				</div>
+				<div className = "about">
+					<button onClick = {handleAboutClick}>About</button>
+				</div>
+				{isAlertVisible && <div className = "aboutContainer">
+					<div className = "aboutInner">
+						<p>A side project of mine, built using React. I wanted to learn React, and I've always wanted to build a bill splitter that worked the way I wanted it to so here it is.</p>
+						<p>More information can be found here: <a href="https://github.com/simon0h/Bill-Splitter">github.com/simon0h/Bill-Splitter</a></p>
+						<div className = "closeAbout">
+							<button onClick = {handleAboutClick}>Close</button>
+						</div>
+					</div>
+				</div>}
 	    	</div>
 		);
 	}
@@ -179,6 +200,18 @@ const App = () => {
 	    				<button type = "submit" onClick = {nextScreen}><FaArrowRight/></button>
 					</div>
 				</div>
+				<div className = "about">
+					<button onClick = {handleAboutClick}>About</button>
+				</div>
+				{isAlertVisible && <div className = "aboutContainer">
+					<div className = "aboutInner">
+						<p>A side project of mine, built using React. I wanted to learn React, and I've always wanted to build a bill splitter that worked the way I wanted it to so here it is.</p>
+						<p>More information can be found here: <a href="https://github.com/simon0h/Bill-Splitter">github.com/simon0h/Bill-Splitter</a></p>
+						<div className = "closeAbout">
+							<button onClick = {handleAboutClick}>Close</button>
+						</div>
+					</div>
+				</div>}
 	    	</div>
 		);
 	}
@@ -200,6 +233,18 @@ const App = () => {
 	    				<button type = "submit" onClick = {nextScreen}><FaArrowRight/></button>
 					</div>
 				</div>
+				<div className = "about">
+					<button onClick = {handleAboutClick}>About</button>
+				</div>
+				{isAlertVisible && <div className = "aboutContainer">
+					<div className = "aboutInner">
+						<p>A side project of mine, built using React. I wanted to learn React, and I've always wanted to build a bill splitter that worked the way I wanted it to so here it is.</p>
+						<p>More information can be found here: <a href="https://github.com/simon0h/Bill-Splitter">github.com/simon0h/Bill-Splitter</a></p>
+						<div className = "closeAbout">
+							<button onClick = {handleAboutClick}>Close</button>
+						</div>
+					</div>
+				</div>}
 	    	</div>
 		);
 	}
@@ -223,6 +268,18 @@ const App = () => {
 				<div className = "singleButton">
 	    			<button type = "submit" onClick = {prevScreen}><FaArrowLeft/></button>
 	    		</div>
+	    		<div className = "about">
+					<button onClick = {handleAboutClick}>About</button>
+				</div>
+				{isAlertVisible && <div className = "aboutContainer">
+					<div className = "aboutInner">
+						<p>A side project of mine, built using React. I wanted to learn React, and I've always wanted to build a bill splitter that worked the way I wanted it to so here it is.</p>
+						<p>More information can be found here: <a href="https://github.com/simon0h/Bill-Splitter">github.com/simon0h/Bill-Splitter</a></p>
+						<div className = "closeAbout">
+							<button onClick = {handleAboutClick}>Close</button>
+						</div>
+					</div>
+				</div>}
 			</div>
 		);
 	}
