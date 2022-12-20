@@ -55,9 +55,9 @@ const AddItem = (props) => {
 						// value = {itemName}
 						onChange = {itemNameChangeHandler}
 						placeholder = {" Item" + props.itemID}
-						autocapitalize = "off"
-						autocomplete = "off"
-						autocorrect = "off"
+						autoCapitalize = "off"
+						autoComplete = "off"
+						autoCorrect = "off"
 					/>
 				</div>
 				<div className = "addItemInputField">

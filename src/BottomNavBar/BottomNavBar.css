@@ -1,0 +1,52 @@
+.about {
+    margin-top: 60px;
+    margin-bottom: 30px;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding: 0;
+    border: none;
+    background: none;
+    font-size: 0.9em;
+    color: grey;
+    display: inline-block;
+}
+
+.about:hover {
+    text-decoration: underline;
+}
+
+.closeAbout {
+    margin-top: 20px;
+    padding: 0;
+    border: none;
+    background: none;
+    font-size: 0.7em;
+    color: grey;
+}
+
+.closeAbout:hover {
+    text-decoration: underline;
+}
+
+.aboutContainer {
+    position: absolute;
+    top: 4rem;
+    left: 0;
+    right: 0;
+    opacity: 1;
+}
+
+.aboutInner {
+    display: inline-block;
+    padding: 8px 16px;
+    border-radius: 6px;
+    color: black;
+    z-index: 1;
+    background-color: rgb(222, 222, 222);
+    box-shadow: 1px 2px 10px -3px rgb(0 0 0 / 70%);
+    -webkit-box-shadow: 1px 2px 10px -3px rgb(0 0 0 / 70%);
+    -moz-box-shadow: 1px 2px 10px -3px rgb(0 0 0 / 70%);
+    width: 20em;
+    font-size: 1.1em;
+    max-width: 75vw;
+}

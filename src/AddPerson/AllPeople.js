@@ -1,5 +1,5 @@
 import React from "react";
-import Person from "./IndvPerson";
+import IndvPerson from "./IndvPerson";
 
 const allPeople = (props) => {
 
@@ -14,7 +14,7 @@ const allPeople = (props) => {
  	return (
     	<ul className = "AllPeople">
 	    	{props.people && props.people.map((person) =>
-	      		(<Person
+	      		(<IndvPerson
 	      			key = {person.id}
 	      			name = {person.name}
 	      			id = {person.id}

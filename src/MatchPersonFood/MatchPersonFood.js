@@ -5,12 +5,20 @@ import './indvButton.css';
 
 const MatchPersonFood = (props) => {
 
+	const truncateName = (name) => {
+		let truncatedName = name;
+		if (name.length > 19) {
+			truncatedName = name.substring(0, 19) + "...";
+		}
+		return(truncatedName);
+	}
+
 	return (
 		<ul className = "allItems">
 			{props.items && props.items.map((item) => (
 				<div className = "indvMatchPersonFood">
 					<li key = {item.id}>
-						<div className = "matchName">{item.name}</div>
+						<div className = "matchName">{truncateName(item.name)}</div>
 						<div className = "matchPrice">${item.price}</div>
 						<ChooseWhoAte
 							itemID = {item.id}

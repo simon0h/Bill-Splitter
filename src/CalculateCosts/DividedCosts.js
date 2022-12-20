@@ -148,12 +148,20 @@ const DividedCosts = (props) => {
 		setShowMoreDetail(!showMoreDetail);
 	}
 
+	const truncateName = (name) => {
+		let truncatedName = name;
+		if (name.length > 15) {
+			truncatedName = name.substring(0, 15) + "...";
+		}
+		return(truncatedName);
+	}
+
 	if (!showMoreDetail) {
 		return (
 			<div className = "dividedCosts">
 				{thisPersonOwes && thisPersonOwes.map((person) => (
 					<li key = {person.id}>
-						<div className = "personOwes">{person.name} owes ${person.owes}</div>
+						<div className = "personOwes">{truncateName(person.name)} owes ${person.owes}</div>
 					</li>)
 				)}
 				<div className = "moreDetail">
@@ -168,7 +176,7 @@ const DividedCosts = (props) => {
 			<div className = "dividedCosts">
 				{thisPersonOwes && thisPersonOwes.map((person) => (
 					<li key = {person.id}>
-						<div className = "personOwes">{person.name} owes ${person.owes}</div>
+						<div className = "personOwes">{truncateName(person.name)} owes ${person.owes}</div>
 					</li>)
 				)}
 				<div className = "moreDetail">
@@ -177,11 +185,11 @@ const DividedCosts = (props) => {
 				{thisPersonOwesDetail && thisPersonOwesDetail.map((person) => (
 					<li key = {person.id}>
 						<div className = "ate">
-							<div className = "detailHeader">Details for {person.name}:</div>
+							<div className = "detailHeader">Details for {truncateName(person.name)}:</div>
 							<hr/>
 							<div> {person.items && person.items.map((itemID) => (
 								<ul key = {person.id + person.name + itemID}>
-									<div>{itemObject[itemID][0]}: ${itemObject[itemID][1] / sharedItems[itemID]}</div>
+									<div>{truncateName(itemObject[itemID][0])}: ${itemObject[itemID][1] / sharedItems[itemID]}</div>
 								</ul>)
 								)}
 							</div>

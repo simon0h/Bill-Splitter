@@ -9,6 +9,10 @@ import "./indvItem.css"
 const Item = (props) => {
 	const [editItemOn, setEditItemOn] = useState(false);
 	const [showMore, setShowMore] = useState(false);
+	let truncatedName = props.name;
+	if (props.name.length > 19) {
+		truncatedName = props.name.substring(0, 19) + "...";
+	}
 
 	const editItem = (id, newName, newPrice) => {
 		props.editItem(id, newName, newPrice);
@@ -64,7 +68,7 @@ const Item = (props) => {
  	return (
     	<li>
 			<div className = "indvItem">
-				<div className = "name">{props.name}</div>
+				<div className = "name">{truncatedName}</div>
 				<div className = "price">{"$" + props.price}</div>
 				<div className = "more">
 					<button onClick = {showMoreHandler}><BsThreeDots/></button>

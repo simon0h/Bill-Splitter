@@ -4,35 +4,34 @@ import AddItem from "./AddItem/AddItem";
 import AllItems from "./AddItem/AllItems";
 import AddPerson from "./AddPerson/AddPerson";
 import AllPeople from "./AddPerson/AllPeople";
-import MatchPersonFood from "./MatchPersonFood/MatchPersonFood"
-import CalculateCosts from "./CalculateCosts/CalculateCosts"
-import './App.css';
+import MatchPersonFood from "./MatchPersonFood/MatchPersonFood";
+import CalculateCosts from "./CalculateCosts/CalculateCosts";
+import BottomNavBar from "./BottomNavBar/BottomNavBar";
+import "./App.css";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 
 const App = () => {
-	const[screen, setScreen] = useState(0);
+	const [screen, setScreen] = useState(0);
 
-	const[inputTipAsPercent, setInputTipAsPercent] = useState(true);
-	const[inputTaxAsPercent, setInputTaxAsPercent] = useState(true);
-	const[taxTip, setTaxTip] = useState({tax: 0, tip: 0});
+	const [inputTipAsPercent, setInputTipAsPercent] = useState(true);
+	const [inputTaxAsPercent, setInputTaxAsPercent] = useState(true);
+	const [taxTip, setTaxTip] = useState({tax: 0, tip: 0});
 
-	const[totalFoodCost, setTotalCost] = useState(0);
+	const [totalFoodCost, setTotalCost] = useState(0);
 
-	const[items, setItems] = useState(""); // Change to a dict
-	const[people, setPerson] = useState(""); // Change to a dict
+	const [items, setItems] = useState(""); // Change to a dict
+	const [people, setPerson] = useState(""); // Change to a dict
 
-	const[numItems, setNumItems] = useState(0);
-	const[numPeople, setNumPeople] = useState(0);
+	const [numItems, setNumItems] = useState(0);
+	const [numPeople, setNumPeople] = useState(0);
 
-	const[itemID, setItemID] = useState(1);
-	const[personID, setPersonID] = useState(1);
+	const [itemID, setItemID] = useState(1);
+	const [personID, setPersonID] = useState(1);
 
-	const[itemEatenBy_All, setItemEatenBy_All] = useState("");
+	const [itemEatenBy_All, setItemEatenBy_All] = useState("");
 
-	const[splitTipEvenly, setSplitTipEvenly] = useState(true);
-	const[splitTaxEvenly, setSplitTaxEvenly] = useState(true);
-
-	const [isAlertVisible, setIsAlertVisible] = useState(false);
+	const [splitTipEvenly, setSplitTipEvenly] = useState(true);
+	const [splitTaxEvenly, setSplitTaxEvenly] = useState(true);
 
 	const addNewItem = (newItem) => {
 		setTotalCost(totalFoodCost + newItem.price);
@@ -132,13 +131,6 @@ const App = () => {
 		setScreen(screen + 1);
 	}
 
-	const handleAboutClick = () => {
-		setIsAlertVisible(!isAlertVisible);
-		// setTimeout(() => {
-		// 	setIsAlertVisible(false);
-		// }, 1800);
-	}
-
 	if (screen === 0) {
 		return (
 	    	<div className="App">
@@ -163,18 +155,7 @@ const App = () => {
 				<div className = "singleButton">
 	    			<button type = "submit" onClick = {nextScreen}><FaArrowRight/></button>
 				</div>
-				<div className = "about">
-					<button onClick = {handleAboutClick}>About</button>
-				</div>
-				{isAlertVisible && <div className = "aboutContainer">
-					<div className = "aboutInner">
-						<p>A side project of mine, built using React. I wanted to learn React, and I've always wanted to build a bill splitter that worked the way I wanted it to so here it is.</p>
-						<p>More information can be found here: <a href="https://github.com/simon0h/Bill-Splitter">github.com/simon0h/Bill-Splitter</a></p>
-						<div className = "closeAbout">
-							<button onClick = {handleAboutClick}>Close</button>
-						</div>
-					</div>
-				</div>}
+				<BottomNavBar/>
 	    	</div>
 		);
 	}
@@ -200,18 +181,7 @@ const App = () => {
 	    				<button type = "submit" onClick = {nextScreen}><FaArrowRight/></button>
 					</div>
 				</div>
-				<div className = "about">
-					<button onClick = {handleAboutClick}>About</button>
-				</div>
-				{isAlertVisible && <div className = "aboutContainer">
-					<div className = "aboutInner">
-						<p>A side project of mine, built using React. I wanted to learn React, and I've always wanted to build a bill splitter that worked the way I wanted it to so here it is.</p>
-						<p>More information can be found here: <a href="https://github.com/simon0h/Bill-Splitter">github.com/simon0h/Bill-Splitter</a></p>
-						<div className = "closeAbout">
-							<button onClick = {handleAboutClick}>Close</button>
-						</div>
-					</div>
-				</div>}
+				<BottomNavBar/>
 	    	</div>
 		);
 	}
@@ -233,18 +203,7 @@ const App = () => {
 	    				<button type = "submit" onClick = {nextScreen}><FaArrowRight/></button>
 					</div>
 				</div>
-				<div className = "about">
-					<button onClick = {handleAboutClick}>About</button>
-				</div>
-				{isAlertVisible && <div className = "aboutContainer">
-					<div className = "aboutInner">
-						<p>A side project of mine, built using React. I wanted to learn React, and I've always wanted to build a bill splitter that worked the way I wanted it to so here it is.</p>
-						<p>More information can be found here: <a href="https://github.com/simon0h/Bill-Splitter">github.com/simon0h/Bill-Splitter</a></p>
-						<div className = "closeAbout">
-							<button onClick = {handleAboutClick}>Close</button>
-						</div>
-					</div>
-				</div>}
+				<BottomNavBar/>
 	    	</div>
 		);
 	}
@@ -268,18 +227,7 @@ const App = () => {
 				<div className = "singleButton">
 	    			<button type = "submit" onClick = {prevScreen}><FaArrowLeft/></button>
 	    		</div>
-	    		<div className = "about">
-					<button onClick = {handleAboutClick}>About</button>
-				</div>
-				{isAlertVisible && <div className = "aboutContainer">
-					<div className = "aboutInner">
-						<p>A side project of mine, built using React. I wanted to learn React, and I've always wanted to build a bill splitter that worked the way I wanted it to so here it is.</p>
-						<p>More information can be found here: <a href="https://github.com/simon0h/Bill-Splitter">github.com/simon0h/Bill-Splitter</a></p>
-						<div className = "closeAbout">
-							<button onClick = {handleAboutClick}>Close</button>
-						</div>
-					</div>
-				</div>}
+	    		<BottomNavBar/>
 			</div>
 		);
 	}

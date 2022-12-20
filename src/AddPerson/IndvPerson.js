@@ -6,6 +6,10 @@ import "./indvPerson.css"
 
 const Person = (props) => {
 	const [editPersonOn, setEditPersonOn] = useState(false);
+	let truncatedName = props.name;
+	if (props.name.length > 19) {
+		truncatedName = props.name.substring(0, 19) + "...";
+	}
 
 	const editPerson = (id, newName) => {
 		props.editPerson(id, newName);
@@ -34,7 +38,7 @@ const Person = (props) => {
 	return (
 	<li>
 		<div className = "indvPerson">
-			<div className = "name">{props.name}</div>
+			<div className = "name">{truncatedName}</div>
 			<div className = "actionButtons">
 				<div className = "remove">
 					<button onClick = {removePersonHandler}><FaTrash/></button>

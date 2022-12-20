@@ -3,17 +3,22 @@ import './addTaxTip.css';
 import { FaSave } from "react-icons/fa";
 
 const AddTaxTip = (props) => {
-	const[tax, setTax] = useState(props.taxTip.tax);
-	const[tip, setTip] = useState(props.taxTip.tip);
+	const [tax, setTax] = useState(props.taxTip.tax);
+	const [tip, setTip] = useState(props.taxTip.tip);
 
-	const[taxButtonColor_Percent, setTaxButtonColor_Percent] = useState(props.inputTaxAsPercent);
-	const[tipButtonColor_Percent, setTipButtonColor_Percent] = useState(props.inputTipAsPercent);
+	const [inputTaxAsPercent, setInputTaxAsPercent] = useState(props.inputTaxAsPercent);
+	const [inputTipAsPercent, setInputTipAsPercent] = useState(props.inputTipAsPercent);
 
 	const [isAlertVisible, setIsAlertVisible] = useState(false);
 
 	const taxChangeHandler = (event) => {
 		if (event.target.value < 0) {
 			window.alert("Tax cannot be negative");
+			setTax("");
+			event.target.value = 0;
+		}
+		else if (event.target.value != 0 && event.target.value < 0.01 && inputTaxAsPercent) {
+			window.alert("Tax must be greater than or equal to 0.01%");
 			setTax("");
 			event.target.value = 0;
 		}
@@ -28,58 +33,63 @@ const AddTaxTip = (props) => {
 			setTip("");
 			event.target.value = 0;
 		}
+		else if (event.target.value != 0 && event.target.value < 0.01 && inputTipAsPercent) {
+			window.alert("Tip must be greater than or equal to 0.01%");
+			setTip("");
+			event.target.value = 0;
+		}
 		else {
 			setTip(Math.floor(event.target.value * 100) / 100); // Truncating past two decimal points
 		}
 	}
 
 	const taxLabel = () => {
-		if (!taxButtonColor_Percent) {
+		if (!inputTaxAsPercent) {
 			return (["$", ""]);
 		}
 		return (["", "%"]);
 	}
 
 	const tipLabel = () => {
-		if (!tipButtonColor_Percent) {
+		if (!inputTipAsPercent) {
 			return (["$", ""]);
 		}
 		return (["", "%"]);
 	}
 
 	const changeTaxInputType = () => {
-		if (taxButtonColor_Percent) {
-			setTaxButtonColor_Percent(false);
+		if (inputTaxAsPercent) {
+			setInputTaxAsPercent(false);
 		}
 		else {
-			setTaxButtonColor_Percent(true);
+			setInputTaxAsPercent(true);
 		}
 	}
 
 	const changeTipInputType = () => {
-		if (tipButtonColor_Percent) {
-			setTipButtonColor_Percent(false);
+		if (inputTipAsPercent) {
+			setInputTipAsPercent(false);
 		}
 		else {
-			setTipButtonColor_Percent(true);
+			setInputTipAsPercent(true);
 		}
 	}
 
 	const changeTaxInputButton = () => {
-		if (taxButtonColor_Percent) {
+		if (inputTaxAsPercent) {
 			return ("Enter by amount instead");
 		}
 		return ("Enter by percentage instead");
 	}
 
 	const changeTipInputButton = () => {
-		if (tipButtonColor_Percent) {
+		if (inputTipAsPercent) {
 			return ("Enter by amount instead");
 		}
 		return ("Enter by percentage instead");
 	}
 
-	const handleButtonClick = () => {
+	const saveClickHandler = (event) => {
 		setIsAlertVisible(true);
 		setTimeout(() => {
 			setIsAlertVisible(false);
@@ -89,8 +99,8 @@ const AddTaxTip = (props) => {
 	const submitHandler = (event) => {
 		event.preventDefault();
 		props.setTaxTip({tax: tax, tip: tip});
-		props.setInputTaxAsPercent(taxButtonColor_Percent);
-		props.setInputTipAsPercent(tipButtonColor_Percent);
+		props.setInputTaxAsPercent(inputTaxAsPercent);
+		props.setInputTipAsPercent(inputTipAsPercent);
 	}
 
     return (
@@ -103,7 +113,7 @@ const AddTaxTip = (props) => {
 						onChange = {taxChangeHandler}
 						placeholder = {" " + taxLabel()[0] + tax + taxLabel()[1]}
 						inputMode = "decimal"
-						step="0.01"
+						step = "any"
 					/>
 					<div className = "textAndToggle">
 						<div className = "toggleLable">Enter by amount </div>
@@ -120,7 +130,7 @@ const AddTaxTip = (props) => {
 						onChange = {tipChangeHandler}
 						placeholder = {" " + tipLabel()[0] + tip + tipLabel()[1]}
 						inputMode = "decimal"
-						step="0.01"
+						step = "any"
 					/>
 					<div className = "textAndToggle">
 						<div className = "toggleLable">Enter by amount </div>
@@ -131,11 +141,13 @@ const AddTaxTip = (props) => {
 					</div>
 				</div>
 				<div className = "save">
-					<button onClick = {handleButtonClick} type = "submit"><FaSave/></button>
+					<button onClick = {saveClickHandler} type = "submit"><FaSave/></button>
 				</div>
-				{isAlertVisible && <div className = "alertContainer">
-					<div className = "alertInner">Saved</div>
-				</div>}
+				{isAlertVisible &&
+					<div className = "alertContainer">
+						<div className = "alertInner">Saved</div>
+					</div>
+				}
 			</form>
 		</div>
 	);
