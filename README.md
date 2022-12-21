@@ -5,7 +5,7 @@ A side project of mine, built using React.
 
 I wanted to learn React, and I've always wanted to build a bill splitter that worked the way I wanted it to so here it is.
 
-To dos can be found under the Issues tab.
+To dos: https://trello.com/b/zRbZGQX7
 
 Hosted here: https://www.billsplitter.online
 
