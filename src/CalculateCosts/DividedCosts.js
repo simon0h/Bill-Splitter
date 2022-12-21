@@ -79,8 +79,6 @@ const DividedCosts = (props) => {
 		for (let i in props.items) {
 			tempItemObj[props.items[i]["id"]] = [props.items[i]["name"], props.items[i]["price"]];
 		}
-		// setItemObject(tempItemObj);
-		// setPersonObject(tempPersonObj);
 		for (let i in props.itemEatenBy_All) {
 			for (let ii in props.itemEatenBy_All[i]["peopleID"]) {
 				let personID = props.itemEatenBy_All[i]["peopleID"][ii];
@@ -89,7 +87,6 @@ const DividedCosts = (props) => {
 			tempSharedItem[props.itemEatenBy_All[i]["itemID"]] = props.itemEatenBy_All[i]["peopleID"].length;
 		}
 		setSharedItems(tempSharedItem);
-		//setAllInvoices(tempAllInvoices);
 		let invoiceArray = [];
 		for (let i in tempAllInvoices) {
 			let personID = i;

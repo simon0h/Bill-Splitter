@@ -2,55 +2,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800;900&display=swap');
 
 .App {
-  text-align: center;
-  font-family: 'Rubik', Arial, Helvetica, sans-serif;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+    text-align: center;
+    font-family: 'Rubik', Arial, Helvetica, sans-serif;
 }
 
 input {
-  background-color: white;
-  border-radius: 3px;
-  border: none;
-  border: 2px solid rgb(222, 222, 222);
-  border-radius: 4px;
-  font-size: 0.9em;
-  margin-bottom: 10px;
-  padding-top: 2px;
-  padding-bottom: 2px;
+    background-color: white;
+    border-radius: 3px;
+    border: none;
+    border: 2px solid rgb(222, 222, 222);
+    border-radius: 4px;
+    font-size: 0.9em;
+    margin-bottom: 10px;
+    padding-top: 2px;
+    padding-bottom: 2px;
 }
 
 input[type="number"] {
@@ -61,6 +26,16 @@ input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
+}
+
+a {
+    color: rgb(54, 161, 236);
+    text-decoration: none;
+}
+
+a:hover {
+    color: rgb(54, 161, 236);
+    text-decoration: underline;
 }
 
 .singleButton button {

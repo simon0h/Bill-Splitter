@@ -52,8 +52,8 @@ const BottomNavBar = () => {
 			</div>}
 			{showContact && <div className = "aboutContainer">
 				<div className = "aboutInner">
-					<p><a href="mailto:simon.oh@hey.com">simon.oh@hey.com</a></p>
-					<p><a href="mailto:simonoh@nyu.edu">simonoh@nyu.edu</a></p>
+					<p>Personal: <a href="mailto:simon.oh@hey.com">simon.oh@hey.com</a></p>
+					<p>School: <a href="mailto:simonoh@nyu.edu">simonoh@nyu.edu</a></p>
 					<button class = "closeAbout" onClick = {handleContactClick}>Close</button>
 				</div>
 			</div>}
