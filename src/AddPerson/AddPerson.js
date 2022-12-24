@@ -4,7 +4,7 @@ import { FaPlusCircle } from "react-icons/fa";
 import './addPerson.css';
 
 const AddPerson = (props) => {
-	const [personName, setPersonName] = useState('');
+	const [personName, setPersonName] = useState("");
 
 	const personNameChangeHandler = (event) => {
 		setPersonName(event.target.value);

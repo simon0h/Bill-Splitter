@@ -131,7 +131,7 @@ const CalculateCosts = (props) => {
 					</label>
 				</div>
 			</div>
-			<div className = "cost">Cost of food: ${props.totalFoodCost}{costBlankSpace}</div>
+			<div className = "cost">Cost of food: ${props.totalFoodCost}{/*{costBlankSpace}*/}</div>
 			<hr/>
 			<div className = "subtotal">Subtotal: ${totalTax + totalTip + props.totalFoodCost}{subtotalBlankSpace}</div>
 			<DividedCosts

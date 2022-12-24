@@ -42,6 +42,7 @@ const AddItem = (props) => {
 		props.onAddItem(newItem);
 		setItemName("");
 		setItemPrice("");
+		event.target.value = 0;
 	}
 
     return (
@@ -52,7 +53,7 @@ const AddItem = (props) => {
 					<label>Item: </label>
 					<input
 						type = "text"
-						// value = {itemName}
+						value = {itemName}
 						onChange = {itemNameChangeHandler}
 						placeholder = {" Item" + props.itemID}
 						autoCapitalize = "off"
@@ -64,7 +65,7 @@ const AddItem = (props) => {
 					<label>Price: </label>
 					<input
 						type = "number"
-						// value = {itemPrice}
+						value = {itemPrice}
 						onChange = {itemPriceChangeHandler}
 						placeholder = {" $0"}
 						inputMode = "decimal"

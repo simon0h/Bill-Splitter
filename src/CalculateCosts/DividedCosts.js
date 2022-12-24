@@ -158,7 +158,7 @@ const DividedCosts = (props) => {
 			<div className = "dividedCosts">
 				{thisPersonOwes && thisPersonOwes.map((person) => (
 					<li key = {person.id}>
-						<div className = "personOwes">{truncateName(person.name)} owes ${person.owes}</div>
+						<div className = "personOwes">{truncateName(person.name)} owes ${Math.floor(person.owes * 100) / 100}</div>
 					</li>)
 				)}
 				<div className = "moreDetail">
@@ -173,7 +173,7 @@ const DividedCosts = (props) => {
 			<div className = "dividedCosts">
 				{thisPersonOwes && thisPersonOwes.map((person) => (
 					<li key = {person.id}>
-						<div className = "personOwes">{truncateName(person.name)} owes ${person.owes}</div>
+						<div className = "personOwes">{truncateName(person.name)} owes ${Math.floor(person.owes * 100) / 100}</div>
 					</li>)
 				)}
 				<div className = "moreDetail">
@@ -186,12 +186,12 @@ const DividedCosts = (props) => {
 							<hr/>
 							<div> {person.items && person.items.map((itemID) => (
 								<ul key = {person.id + person.name + itemID}>
-									<div>{truncateName(itemObject[itemID][0])}: ${itemObject[itemID][1] / sharedItems[itemID]}</div>
+									<div>{truncateName(itemObject[itemID][0])}: ${Math.floor(itemObject[itemID][1] / sharedItems[itemID] * 100) / 100}</div>
 								</ul>)
 								)}
 							</div>
-							<div>Tax: ${taxAndTip[person.id][0]}</div>
-							<div>Tip: ${taxAndTip[person.id][1]}</div>
+							<div>Tax: ${Math.floor(taxAndTip[person.id][0] * 100) / 100}</div>
+							<div>Tip: ${Math.floor(taxAndTip[person.id][1] * 100) / 100}</div>
 						</div>
 					</li>)
 				)}
