@@ -100,20 +100,28 @@ const DividedCosts = (props) => {
 				owes += itemPrice;
 			}
 			if (props.splitTaxEvenly) {
-				tax = (props.totalTax / props.people.length);
-				owes += tax;
+				if (props.people.length > 0) {
+					tax = (props.totalTax / props.people.length);
+					owes += tax;
+				}
 			}
 			else {
-				tax = (props.totalTax * (owes/ props.totalFoodCost));
-				owes += tax;
+				if (props.totalFoodCost > 0) {
+					tax = (props.totalTax * (owes / props.totalFoodCost));
+					owes += tax;
+				}
 			}
 			if (props.splitTipEvenly) {
-				tip = (props.totalTip / props.people.length);
-				owes += tip;
+				if (props.people.length > 0) {
+					tip = (props.totalTip / props.people.length);
+					owes += tip;
+				}
 			}
 			else {
-				tip = (props.totalTip * (owes / props.totalFoodCost));
-				owes += tip;
+				if (props.totalFoodCost > 0) {
+					tip = (props.totalTip * (owes / props.totalFoodCost));
+					owes += tip;
+				}
 			}
 			tempTaxAndTip[personID] = [tax, tip];
 			setTaxAndTip(tempTaxAndTip);

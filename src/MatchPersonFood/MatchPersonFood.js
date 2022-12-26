@@ -15,11 +15,13 @@ const MatchPersonFood = (props) => {
 
 	return (
 		<ul className = "allItems">
+			<div className = "addPersonTitle">Match people with the food they ate</div>
 			{props.items && props.items.map((item) => (
 				<div className = "indvMatchPersonFood">
 					<li key = {item.id}>
-						<div className = "matchName">{truncateName(item.name)}</div>
+						<div className = "matchName">{truncateName(item.name)} costs:</div>
 						<div className = "matchPrice">${item.price}</div>
+						<div className = "matchDescription">and was eaten by:</div>
 						<ChooseWhoAte
 							itemID = {item.id}
 							people = {props.people}

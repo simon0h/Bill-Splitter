@@ -29,6 +29,17 @@
 	padding-bottom: 0.5em;
 }
 
+.matchDescription {
+	border-top-left-radius: 6px;
+	border-top-right-radius: 6px;
+	padding-left: 1.5em;
+	padding-right: 1.5em;
+	padding-top: 0.2em;
+	padding-bottom: 0.2em;
+	height: fit-content;
+	font-weight: 600;
+}
+
 .personSelect {
 	min-width: 200px;
 }
