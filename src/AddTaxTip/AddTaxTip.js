@@ -17,7 +17,7 @@ const AddTaxTip = (props) => {
 			setTax("");
 			event.target.value = 0;
 		}
-		else if (event.target.value != 0 && event.target.value < 0.01 && inputTaxAsPercent) {
+		else if (event.target.value !== 0 && event.target.value < 0.01 && inputTaxAsPercent) {
 			window.alert("Tax must be greater than or equal to 0.01%");
 			setTax("");
 			event.target.value = 0;
@@ -33,7 +33,7 @@ const AddTaxTip = (props) => {
 			setTip("");
 			event.target.value = 0;
 		}
-		else if (event.target.value != 0 && event.target.value < 0.01 && inputTipAsPercent) {
+		else if (event.target.value !== 0 && event.target.value < 0.01 && inputTipAsPercent) {
 			window.alert("Tip must be greater than or equal to 0.01%");
 			setTip("");
 			event.target.value = 0;
@@ -58,6 +58,7 @@ const AddTaxTip = (props) => {
 	}
 
 	const changeTaxInputType = () => {
+		setTax(0);
 		if (inputTaxAsPercent) {
 			setInputTaxAsPercent(false);
 		}
@@ -67,26 +68,13 @@ const AddTaxTip = (props) => {
 	}
 
 	const changeTipInputType = () => {
+		setTip(0);
 		if (inputTipAsPercent) {
 			setInputTipAsPercent(false);
 		}
 		else {
 			setInputTipAsPercent(true);
 		}
-	}
-
-	const changeTaxInputButton = () => {
-		if (inputTaxAsPercent) {
-			return ("Enter by amount instead");
-		}
-		return ("Enter by percentage instead");
-	}
-
-	const changeTipInputButton = () => {
-		if (inputTipAsPercent) {
-			return ("Enter by amount instead");
-		}
-		return ("Enter by percentage instead");
 	}
 
 	const saveClickHandler = (event) => {
@@ -99,8 +87,8 @@ const AddTaxTip = (props) => {
 	const submitHandler = (event) => {
 		event.preventDefault();
 		props.setTaxTip({tax: tax, tip: tip});
-		props.setInputTaxAsPercent(inputTaxAsPercent);
-		props.setInputTipAsPercent(inputTipAsPercent);
+		// props.setInputTaxAsPercent(inputTaxAsPercent);
+		// props.setInputTipAsPercent(inputTipAsPercent);
 	}
 
     return (

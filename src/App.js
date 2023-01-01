@@ -17,7 +17,7 @@ const App = () => {
 	const [inputTaxAsPercent, setInputTaxAsPercent] = useState(true);
 	const [taxTip, setTaxTip] = useState({tax: 0, tip: 0});
 
-	const [totalFoodCost, setTotalCost] = useState(0);
+	const [totalFoodCost, setTotalFoodCost] = useState(0);
 
 	const [items, setItems] = useState(""); // Change to a dict
 	const [people, setPerson] = useState(""); // Change to a dict
@@ -34,11 +34,11 @@ const App = () => {
 	const [splitTaxEvenly, setSplitTaxEvenly] = useState(true);
 
 	const addNewItem = (newItem) => {
-		setTotalCost(totalFoodCost + newItem.price);
+		setTotalFoodCost(prevState => prevState + newItem.price);
 		setNumItems(numItems + 1);
-		if (numItems > 20) {
-			setNumItems(20);
-			window.alert("Number of people cannot exceed 20");
+		if (numItems > 100) {
+			setNumItems(100);
+			window.alert("Number of items cannot exceed 100");
 		}
 		else {
 			setItems((prevItems) => {
@@ -68,7 +68,9 @@ const App = () => {
 	}
 
 	const removeItem = (id, price) => {
-		setTotalCost(totalFoodCost - price);
+		console.log(totalFoodCost, " - ", price);
+		setTotalFoodCost(totalFoodCost - price);
+		console.log("totalFoodCost", totalFoodCost);
 		setNumItems(numItems - 1);
 		const newList = items.filter((item) => item.id !== id);
     	setItems(newList);

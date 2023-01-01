@@ -71,7 +71,7 @@ const CalculateCosts = (props) => {
 				percentage = "";
 			}
 			else {
-				percentage = " (" + Math.floor(100 * props.taxTip.tax / props.totalFoodCost) + "%)";
+				percentage = " (" + Math.floor(100 * (totalTax / props.totalFoodCost)) + "%)";
 			}
 		}
 		else {
@@ -79,7 +79,7 @@ const CalculateCosts = (props) => {
 				percentage = "";
 			}
 			else {
-				percentage = " (" + Math.floor(100 * props.taxTip.tip / props.totalFoodCost) + "%)";
+				percentage = " (" + Math.floor(100 * (totalTip / props.totalFoodCost)) + "%)";
 			}
 		}
 		return(percentage);
@@ -133,7 +133,7 @@ const CalculateCosts = (props) => {
 			</div>
 			<div className = "cost">Cost of food: ${props.totalFoodCost}{/*{costBlankSpace}*/}</div>
 			<hr/>
-			<div className = "subtotal">Subtotal: ${totalTax + totalTip + props.totalFoodCost}{subtotalBlankSpace}</div>
+			<div className = "subtotal">Subtotal: ${Math.floor((totalTax + totalTip + props.totalFoodCost) * 100) / 100}{subtotalBlankSpace}</div>
 			<DividedCosts
 				key = {refresh}
 				itemEatenBy_All = {props.itemEatenBy_All}

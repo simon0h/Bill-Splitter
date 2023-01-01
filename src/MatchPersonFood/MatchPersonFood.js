@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import ChooseWhoAte from "./ChooseWhoAte";
 
 import './indvButton.css';

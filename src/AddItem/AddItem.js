@@ -17,6 +17,11 @@ const AddItem = (props) => {
 			setItemPrice("");
 			event.target.value = 0;
 		}
+		else if (event.target.value !== 0 && event.target.value < 0.01) {
+			window.alert("Item price must be greater than or equal to 0.01");
+			setItemPrice("");
+			event.target.value = 0;
+		}
 		else {
 			setItemPrice(Math.floor(event.target.value * 100) / 100); // Truncating past two decimal points
 		}
@@ -69,7 +74,7 @@ const AddItem = (props) => {
 						onChange = {itemPriceChangeHandler}
 						placeholder = {" $0"}
 						inputMode = "decimal"
-						step="0.01"
+						step = "0.01"
 					/>
 				</div>
 				<div className = "addItemButton">
