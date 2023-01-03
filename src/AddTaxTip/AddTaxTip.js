@@ -6,8 +6,10 @@ const AddTaxTip = (props) => {
 	const [tax, setTax] = useState(props.taxTip.tax);
 	const [tip, setTip] = useState(props.taxTip.tip);
 
-	const [inputTaxAsPercent, setInputTaxAsPercent] = useState(props.inputTaxAsPercent);
-	const [inputTipAsPercent, setInputTipAsPercent] = useState(props.inputTipAsPercent);
+	// const [inputTaxAsPercent, setInputTaxAsPercent] = useState(props.inputTaxAsPercent);
+	// const [inputTipAsPercent, setInputTipAsPercent] = useState(props.inputTipAsPercent);
+	const [inputTaxAsPercent, setInputTaxAsPercent] = useState(true);
+	const [inputTipAsPercent, setInputTipAsPercent] = useState(true);
 
 	const [isAlertVisible, setIsAlertVisible] = useState(false);
 
@@ -87,8 +89,8 @@ const AddTaxTip = (props) => {
 	const submitHandler = (event) => {
 		event.preventDefault();
 		props.setTaxTip({tax: tax, tip: tip});
-		// props.setInputTaxAsPercent(inputTaxAsPercent);
-		// props.setInputTipAsPercent(inputTipAsPercent);
+		props.setInputTaxAsPercent(inputTaxAsPercent);
+		props.setInputTipAsPercent(inputTipAsPercent);
 	}
 
     return (

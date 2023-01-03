@@ -8,6 +8,10 @@ const CalculateCosts = (props) => {
 	const[refresh, setRefresh] = useState("");
 	const[subtotalBlankSpace, setSubtotalBlankSpace] = useState("");
 
+	const truncateDecimal = (num) => {
+		return (Math.floor((num) * 100) / 100);
+	}
+
 	const[splitTaxButton, setSplitTaxButton] = useState(() => {
 		if (props.splitTaxEvenly) {
 			return("Don't split tax evenly");
@@ -71,7 +75,7 @@ const CalculateCosts = (props) => {
 				percentage = "";
 			}
 			else {
-				percentage = " (" + Math.floor(100 * (totalTax / props.totalFoodCost)) + "%)";
+				percentage = " (" + truncateDecimal(totalTax / props.totalFoodCost * 100) + "%)";
 			}
 		}
 		else {
@@ -79,7 +83,7 @@ const CalculateCosts = (props) => {
 				percentage = "";
 			}
 			else {
-				percentage = " (" + Math.floor(100 * (totalTip / props.totalFoodCost)) + "%)";
+				percentage = " (" + truncateDecimal(totalTip / props.totalFoodCost * 100) + "%)";
 			}
 		}
 		return(percentage);
@@ -131,9 +135,10 @@ const CalculateCosts = (props) => {
 					</label>
 				</div>
 			</div>
-			<div className = "cost">Cost of food: ${props.totalFoodCost}{/*{costBlankSpace}*/}</div>
+			<div className = "cost">Cost of food: ${truncateDecimal(props.totalFoodCost)}{/*{costBlankSpace}*/}</div>
 			<hr/>
-			<div className = "subtotal">Subtotal: ${Math.floor((totalTax + totalTip + props.totalFoodCost) * 100) / 100}{subtotalBlankSpace}</div>
+			{/*<div className = "subtotal">Subtotal: ${Math.floor((totalTax + totalTip + props.totalFoodCost) * 100) / 100}{subtotalBlankSpace}</div>*/}
+			<div className = "subtotal">Subtotal: ${truncateDecimal(totalTax + totalTip + props.totalFoodCost)}</div>
 			<DividedCosts
 				key = {refresh}
 				itemEatenBy_All = {props.itemEatenBy_All}

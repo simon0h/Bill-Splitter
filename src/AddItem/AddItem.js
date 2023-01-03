@@ -17,20 +17,15 @@ const AddItem = (props) => {
 			setItemPrice("");
 			event.target.value = 0;
 		}
-		else if (event.target.value !== 0 && event.target.value < 0.01) {
-			window.alert("Item price must be greater than or equal to 0.01");
-			setItemPrice("");
-			event.target.value = 0;
-		}
 		else {
-			setItemPrice(Math.floor(event.target.value * 100) / 100); // Truncating past two decimal points
+			setItemPrice(event.target.value);
 		}
 	}
 
 	const submitHandler = (event) => {
 		event.preventDefault();
 		let autoItemName = itemName;
-		let itemPriceCheck = itemPrice;
+		let itemPriceCheck = Math.floor(event.target[1].value * 100) / 100;
 		if (!itemName.trim()) {
 			autoItemName = "Item" + props.itemID;
 			setItemName(autoItemName);
@@ -47,7 +42,6 @@ const AddItem = (props) => {
 		props.onAddItem(newItem);
 		setItemName("");
 		setItemPrice("");
-		event.target.value = 0;
 	}
 
     return (

@@ -68,9 +68,9 @@ const App = () => {
 	}
 
 	const removeItem = (id, price) => {
-		console.log(totalFoodCost, " - ", price);
+		// console.log(totalFoodCost, " - ", price);
 		setTotalFoodCost(totalFoodCost - price);
-		console.log("totalFoodCost", totalFoodCost);
+		// console.log("totalFoodCost", totalFoodCost);
 		setNumItems(numItems - 1);
 		const newList = items.filter((item) => item.id !== id);
     	setItems(newList);

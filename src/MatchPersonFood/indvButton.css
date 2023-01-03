@@ -4,7 +4,7 @@
 	width: fit-content;
 	text-align: center;
 	margin: auto;
-	margin-top: 23px;
+	margin-top: 8px;
 	margin-bottom: 10px;
 	padding-bottom: 10px;
 	padding-left: 30px;
@@ -18,7 +18,7 @@
 	border-top-right-radius: 6px;
 	padding-left: 1.5em;
 	padding-right: 1.5em;
-	padding-top: 1.2em;
+	padding-top: 0.2em;
 	padding-bottom: 0.2em;
 	height: fit-content;
 	font-weight: 600;
@@ -60,7 +60,7 @@
 	cursor: pointer;
 	display: inline-block;
 	background: rgb(222, 222, 222);
-	margin-top: 19px;
+	margin-top: 12px;
 	text-align: center;
 	padding: 7px;
 	color: black;
@@ -80,7 +80,7 @@
 	cursor: pointer;
 	display: inline-block;
 	background: rgb(77, 191, 98);
-	margin-top: 19px;
+	margin-top: 12px;
 	text-align: center;
 	padding: 7px;
 	color: black;

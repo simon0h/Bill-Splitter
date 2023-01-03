@@ -9,6 +9,10 @@ const DividedCosts = (props) => {
 	const[sharedItems, setSharedItems] = useState({});
 	const[taxAndTip, setTaxAndTip] = useState({});
 
+	const truncateDecimal = (num) => {
+		return (Math.floor((num) * 100) / 100);
+	}
+
 	const fillPersonObject = () => {
 		let tempPersonObj = {};
 		for (let i in props.people) {
@@ -166,7 +170,7 @@ const DividedCosts = (props) => {
 			<div className = "dividedCosts">
 				{thisPersonOwes && thisPersonOwes.map((person) => (
 					<li key = {person.id}>
-						<div className = "personOwes">{truncateName(person.name)} owes ${Math.floor(person.owes * 100) / 100}</div>
+						<div className = "personOwes">{truncateName(person.name)} owes ${truncateDecimal(person.owes)}</div>
 					</li>)
 				)}
 				<div className = "moreDetail">
@@ -181,7 +185,7 @@ const DividedCosts = (props) => {
 			<div className = "dividedCosts">
 				{thisPersonOwes && thisPersonOwes.map((person) => (
 					<li key = {person.id}>
-						<div className = "personOwes">{truncateName(person.name)} owes ${Math.floor(person.owes * 100) / 100}</div>
+						<div className = "personOwes">{truncateName(person.name)} owes ${truncateDecimal(person.owes)}</div>
 					</li>)
 				)}
 				<div className = "moreDetail">
@@ -194,12 +198,12 @@ const DividedCosts = (props) => {
 							<hr/>
 							<div> {person.items && person.items.map((itemID) => (
 								<ul key = {person.id + person.name + itemID}>
-									<div>{truncateName(itemObject[itemID][0])}: ${Math.floor(itemObject[itemID][1] / sharedItems[itemID] * 100) / 100}</div>
+									<div>{truncateName(itemObject[itemID][0])}: ${truncateDecimal(itemObject[itemID][1] / sharedItems[itemID])}</div>
 								</ul>)
 								)}
 							</div>
-							<div>Tax: ${Math.floor(taxAndTip[person.id][0] * 100) / 100}</div>
-							<div>Tip: ${Math.floor(taxAndTip[person.id][1] * 100) / 100}</div>
+							<div>Tax: ${truncateDecimal(taxAndTip[person.id][0])}</div>
+							<div>Tip: ${truncateDecimal(taxAndTip[person.id][1])}</div>
 						</div>
 					</li>)
 				)}

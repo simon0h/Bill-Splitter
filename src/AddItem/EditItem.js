@@ -20,15 +20,16 @@ const EditItem = (props) => {
 		if (event.target.value < 0) {
 			window.alert("Item price cannot be negative");
 			setNewPrice("");
+			event.target.value = 0;
 		}
 		else {
-			setNewPrice(Math.floor(event.target.value * 100) / 100); // Truncating past two decimal points
+			setNewPrice(event.target.value);
 		}
 	}
 
 	const submitHandler = (event) => {
 		event.preventDefault();
-		props.editItem(props.id, newName, newPrice);
+		props.editItem(props.id, newName, Math.floor(newPrice * 100) / 100);
 		editItemDoneHandler();
 	}
 
@@ -48,15 +49,18 @@ const EditItem = (props) => {
 							type = "text"
 							value = {newName}
 							onChange = {itemNameChangeHandler}
+							autoCapitalize = "off"
+							autoComplete = "off"
+							autoCorrect = "off"
 						/>
 					</div>
 					<div className = "item">
 						<input
 							type = "number"
-							min = "0.01"
-							step = "0.01"
 							value = {newPrice}
 							onChange = {itemPriceChangeHandler}
+							inputMode = "decimal"
+							step = "0.01"
 						/>
 					</div>
     				<div className = "saveChannges">
