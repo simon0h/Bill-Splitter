@@ -6,12 +6,13 @@ const AddTaxTip = (props) => {
 	const [tax, setTax] = useState(props.taxTip.tax);
 	const [tip, setTip] = useState(props.taxTip.tip);
 
-	// const [inputTaxAsPercent, setInputTaxAsPercent] = useState(props.inputTaxAsPercent);
-	// const [inputTipAsPercent, setInputTipAsPercent] = useState(props.inputTipAsPercent);
-	const [inputTaxAsPercent, setInputTaxAsPercent] = useState(true);
-	const [inputTipAsPercent, setInputTipAsPercent] = useState(true);
-
+	const [inputTaxAsPercent, setInputTaxAsPercent] = useState(props.inputTaxAsPercent);
+	const [inputTipAsPercent, setInputTipAsPercent] = useState(props.inputTipAsPercent);
 	const [isAlertVisible, setIsAlertVisible] = useState(false);
+
+	const truncateDecimal = (num) => {
+		return (Math.floor(num * 100) / 100);
+	}
 
 	const taxChangeHandler = (event) => {
 		if (event.target.value < 0) {
@@ -19,13 +20,8 @@ const AddTaxTip = (props) => {
 			setTax("");
 			event.target.value = 0;
 		}
-		else if (event.target.value !== 0 && event.target.value < 0.01 && inputTaxAsPercent) {
-			window.alert("Tax must be greater than or equal to 0.01%");
-			setTax("");
-			event.target.value = 0;
-		}
 		else {
-			setTax(Math.floor(event.target.value * 100) / 100); // Truncating past two decimal points
+			setTax(event.target.value);
 		}
 	}
 
@@ -35,13 +31,8 @@ const AddTaxTip = (props) => {
 			setTip("");
 			event.target.value = 0;
 		}
-		else if (event.target.value !== 0 && event.target.value < 0.01 && inputTipAsPercent) {
-			window.alert("Tip must be greater than or equal to 0.01%");
-			setTip("");
-			event.target.value = 0;
-		}
 		else {
-			setTip(Math.floor(event.target.value * 100) / 100); // Truncating past two decimal points
+			setTip(event.target.value);
 		}
 	}
 
@@ -61,22 +52,12 @@ const AddTaxTip = (props) => {
 
 	const changeTaxInputType = () => {
 		setTax(0);
-		if (inputTaxAsPercent) {
-			setInputTaxAsPercent(false);
-		}
-		else {
-			setInputTaxAsPercent(true);
-		}
+		setInputTaxAsPercent(!inputTaxAsPercent);
 	}
 
 	const changeTipInputType = () => {
 		setTip(0);
-		if (inputTipAsPercent) {
-			setInputTipAsPercent(false);
-		}
-		else {
-			setInputTipAsPercent(true);
-		}
+		setInputTipAsPercent(!inputTipAsPercent);
 	}
 
 	const saveClickHandler = (event) => {
@@ -88,7 +69,7 @@ const AddTaxTip = (props) => {
 
 	const submitHandler = (event) => {
 		event.preventDefault();
-		props.setTaxTip({tax: tax, tip: tip});
+		props.setTaxTip({tax: truncateDecimal(event.target[0].value), tip: truncateDecimal(event.target[2].value)});
 		props.setInputTaxAsPercent(inputTaxAsPercent);
 		props.setInputTipAsPercent(inputTipAsPercent);
 	}
@@ -108,7 +89,7 @@ const AddTaxTip = (props) => {
 					<div className = "textAndToggle">
 						<div className = "toggleLable">Enter by amount </div>
 						<label className = "switch">
-							<input type = "checkbox" onClick = {changeTaxInputType}></input>
+							<input type = "checkbox" checked = {!inputTaxAsPercent} onChange = {changeTaxInputType} onClick = {changeTaxInputType}></input>
 							<span className = "slider round"></span>
 						</label>
 					</div>
@@ -125,7 +106,7 @@ const AddTaxTip = (props) => {
 					<div className = "textAndToggle">
 						<div className = "toggleLable">Enter by amount </div>
 						<label className="switch">
-							<input type="checkbox" onClick = {changeTipInputType}></input>
+							<input type="checkbox" checked = {!inputTipAsPercent} onChange = {changeTipInputType} onClick = {changeTipInputType}></input>
 							<span className="slider round"></span>
 						</label>
 					</div>

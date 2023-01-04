@@ -55,15 +55,17 @@ const ChooseWhoAte = (props) => {
 		<ul>
 			<form onSubmit = {submitHandler}>
 		    	{props.people && props.people.map((person) => (
-					<IndvButton
-						key = {person.id}
-						id = {person.id}
-						name = {person.name}
-						addPersonWhoAte = {addPersonWhoAte}
-						removePersonWhoAte = {removePersonWhoAte}
-						buttonColor = {selectedPeopleObject[person.id][0]}
-						selectionState = {selectedPeopleObject[person.id][1]}
-					/>)
+		    		<li key = {person.id}>
+						<IndvButton
+							key = {person.id}
+							id = {person.id}
+							name = {person.name}
+							addPersonWhoAte = {addPersonWhoAte}
+							removePersonWhoAte = {removePersonWhoAte}
+							buttonColor = {selectedPeopleObject[person.id][0]}
+							selectionState = {selectedPeopleObject[person.id][1]}
+						/>
+					</li>)
 				)}
 			</form>
 		</ul>

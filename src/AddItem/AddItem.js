@@ -7,6 +7,10 @@ const AddItem = (props) => {
 	const [itemName, setItemName] = useState("");
 	const [itemPrice, setItemPrice] = useState("");
 
+	const truncateDecimal = (num) => {
+		return (Math.floor(num * 100) / 100);
+	}
+
 	const itemNameChangeHandler = (event) => {
 		setItemName(event.target.value);
 	}
@@ -25,7 +29,7 @@ const AddItem = (props) => {
 	const submitHandler = (event) => {
 		event.preventDefault();
 		let autoItemName = itemName;
-		let itemPriceCheck = Math.floor(event.target[1].value * 100) / 100;
+		let itemPriceCheck = truncateDecimal(event.target[1].value);
 		if (!itemName.trim()) {
 			autoItemName = "Item" + props.itemID;
 			setItemName(autoItemName);

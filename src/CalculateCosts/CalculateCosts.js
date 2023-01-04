@@ -9,14 +9,14 @@ const CalculateCosts = (props) => {
 	const[subtotalBlankSpace, setSubtotalBlankSpace] = useState("");
 
 	const truncateDecimal = (num) => {
-		return (Math.floor((num) * 100) / 100);
+		return (Math.floor(num * 100) / 100);
 	}
 
 	const[splitTaxButton, setSplitTaxButton] = useState(() => {
 		if (props.splitTaxEvenly) {
-			return("Don't split tax evenly");
+			return ("Don't split tax evenly");
 		}
-		return("Split tax evenly");
+		return ("Split tax evenly");
 	});
 
 	const[splitTipButton, setSplitTipButton] = useState(() => {
@@ -29,23 +29,23 @@ const CalculateCosts = (props) => {
 	const[totalTax, setTotalTax] = useState(() => {
 		let tax = 0;
 		if (props.inputTaxAsPercent) {
-			tax = (Math.floor((props.totalFoodCost * (props.taxTip.tax / 100)) * 100) / 100);
+			tax = truncateDecimal(props.totalFoodCost * props.taxTip.tax / 100);
 		}
 		else {
 			tax = props.taxTip.tax;
 		}
-		return(tax);
+		return (tax);
 	});
 
 	const[totalTip, setTotalTip] = useState(() => {
 		let tip = 0;
 		if (props.inputTipAsPercent) {
-			tip = (Math.floor((props.totalFoodCost * (props.taxTip.tip / 100)) * 100) / 100);
+			tip = truncateDecimal(props.totalFoodCost * props.taxTip.tip / 100);
 		}
 		else {
 			tip = props.taxTip.tip;
 		}
-		return(tip);
+		return (tip);
 	})
 
 	const[costBlankSpace, setCostBlankSpace] = useState(() => {
@@ -65,28 +65,23 @@ const CalculateCosts = (props) => {
 			setSubtotalBlankSpace('-'.repeat(costLength - subtotalLength));
 			return("");
 		}
-		return('-'.repeat(subtotalLength - costLength));
+		return ('-'.repeat(subtotalLength - costLength));
 	})
 
-	const showPercentage = (type) => {
+	const showPercentage = (amount, totalAmount, inputAsPercent) => {
 		let percentage = "";
-		if (type === "tax") {
-			if (props.taxTip.tax <= 0 || (props.totalFoodCost === 0 && props.inputTaxAsPercent)) {
-				percentage = "";
-			}
-			else {
-				percentage = " (" + truncateDecimal(totalTax / props.totalFoodCost * 100) + "%)";
-			}
+		if (totalAmount === 0 || props.totalFoodCost === 0) {
+			percentage = "";
 		}
 		else {
-			if (props.taxTip.tip <= 0 || (props.totalFoodCost === 0 && props.inputTipAsPercent)) {
-				percentage = "";
+			if (inputAsPercent) {
+				percentage = " (" + amount + "%)";
 			}
 			else {
-				percentage = " (" + truncateDecimal(totalTip / props.totalFoodCost * 100) + "%)";
+				percentage = " (" + truncateDecimal(totalAmount / props.totalFoodCost * 100) + "%)";
 			}
 		}
-		return(percentage);
+		return (percentage);
 	}
 
 	const onSplitTaxMethod = () => {
@@ -116,7 +111,7 @@ const CalculateCosts = (props) => {
 	return (
 		<div className = "calculateCosts">
 			<div className = "displayTax">
-				Tax: ${totalTax} {showPercentage("tax")}
+				Tax: ${totalTax} {showPercentage(props.taxTip.tax, totalTax, props.inputTaxAsPercent)}
 				<div className = "textAndToggle">
 					<div className = "toggleLable">Don't split tax evenly </div>
 					<label className = "switch">
@@ -126,7 +121,7 @@ const CalculateCosts = (props) => {
 				</div>
 			</div>
 			<div className = "displayTip">
-				Tip: ${totalTip} {showPercentage("tip")}
+				Tip: ${totalTip} {showPercentage(props.taxTip.tip, totalTip, props.inputTipAsPercent)}
 				<div className = "textAndToggle">
 					<div className = "toggleLable">Don't split tip evenly </div>
 					<label className = "switch">
@@ -137,7 +132,6 @@ const CalculateCosts = (props) => {
 			</div>
 			<div className = "cost">Cost of food: ${truncateDecimal(props.totalFoodCost)}{/*{costBlankSpace}*/}</div>
 			<hr/>
-			{/*<div className = "subtotal">Subtotal: ${Math.floor((totalTax + totalTip + props.totalFoodCost) * 100) / 100}{subtotalBlankSpace}</div>*/}
 			<div className = "subtotal">Subtotal: ${truncateDecimal(totalTax + totalTip + props.totalFoodCost)}</div>
 			<DividedCosts
 				key = {refresh}

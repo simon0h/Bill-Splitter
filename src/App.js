@@ -13,9 +13,9 @@ import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 const App = () => {
 	const [screen, setScreen] = useState(0);
 
+	const [taxTip, setTaxTip] = useState({tax: 0, tip: 0});
 	const [inputTipAsPercent, setInputTipAsPercent] = useState(true);
 	const [inputTaxAsPercent, setInputTaxAsPercent] = useState(true);
-	const [taxTip, setTaxTip] = useState({tax: 0, tip: 0});
 
 	const [totalFoodCost, setTotalFoodCost] = useState(0);
 
@@ -68,9 +68,7 @@ const App = () => {
 	}
 
 	const removeItem = (id, price) => {
-		// console.log(totalFoodCost, " - ", price);
 		setTotalFoodCost(totalFoodCost - price);
-		// console.log("totalFoodCost", totalFoodCost);
 		setNumItems(numItems - 1);
 		const newList = items.filter((item) => item.id !== id);
     	setItems(newList);
@@ -138,17 +136,17 @@ const App = () => {
 	    	<div className="App">
 	    		<AddTaxTip
 	    			taxTip = {taxTip}
+	    			setTaxTip = {setTaxTip}
 	    			inputTaxAsPercent = {inputTaxAsPercent}
 	    			inputTipAsPercent = {inputTipAsPercent}
 	    			setInputTaxAsPercent = {setInputTaxAsPercent}
 	    			setInputTipAsPercent = {setInputTipAsPercent}
-	    			setTaxTip = {setTaxTip}
 	    		/>
 	    		<AddItem
 	    			onAddItem = {addNewItem}
 	    			itemID = {itemID}
 	    			setItemID = {setItemID}
-	    		/> {/*Suggest new items based on what was entered, e.g suggest ramen if that was already types*/}
+	    		/>
 	    		<AllItems
 	    			items = {items}
 	    			editItem = {editItem}

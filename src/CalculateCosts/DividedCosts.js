@@ -10,7 +10,7 @@ const DividedCosts = (props) => {
 	const[taxAndTip, setTaxAndTip] = useState({});
 
 	const truncateDecimal = (num) => {
-		return (Math.floor((num) * 100) / 100);
+		return (Math.floor(num * 100) / 100);
 	}
 
 	const fillPersonObject = () => {

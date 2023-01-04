@@ -23,6 +23,7 @@ const MatchPersonFood = (props) => {
 						<div className = "matchPrice">${item.price}</div>
 						<div className = "matchDescription">and was eaten by:</div>
 						<ChooseWhoAte
+							key = {item.id}
 							itemID = {item.id}
 							people = {props.people}
 							matchItemEatenBy_All = {props.matchItemEatenBy_All}
