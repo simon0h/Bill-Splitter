@@ -1,3 +1,22 @@
+.matchHelp {
+    margin-top: 6px;
+    margin-bottom: 6px;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding: 0;
+    border: none;
+    background: none;
+    font-size: 1.1em;
+    font-weight: bold;
+    color: grey;
+    display: inline-block;
+}
+
+.matchHelp:hover {
+	text-decoration: underline;
+	cursor: pointer;
+}
+
 .indvMatchPersonFood {
 	border: 3px solid rgb(222, 222, 222);
 	border-radius: 6px;

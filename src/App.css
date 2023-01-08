@@ -4,6 +4,7 @@
 .App {
     text-align: center;
     font-family: 'Rubik', Arial, Helvetica, sans-serif;
+    background-color: white;
 }
 
 input {

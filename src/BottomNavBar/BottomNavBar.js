@@ -9,32 +9,20 @@ const BottomNavBar = () => {
 
 	const handleAboutClick = () => {
 		setShowAbout(!showAbout);
-		if (showContact) {
-			setShowContact(false);
-		}
-		if (showPrivacy) {
-			setShowPrivacy(false);
-		}
+		setShowContact(false);
+		setShowPrivacy(false);
 	}
 
 	const handleContactClick = () => {
 		setShowContact(!showContact);
-		if (showAbout) {
-			setShowAbout(false);
-		}
-		if (showPrivacy) {
-			setShowPrivacy(false);
-		}
+		setShowAbout(false);
+		setShowPrivacy(false);
 	}
 
 	const handlePrivacyClick = () => {
 		setShowPrivacy(!showPrivacy);
-		if (showContact) {
-			setShowContact(false);
-		}
-		if (showAbout) {
-			setShowAbout(false);
-		}
+		setShowContact(false);
+		setShowAbout(false);
 	}
 
 	return (
@@ -44,7 +32,7 @@ const BottomNavBar = () => {
 			<button className = "about" onClick = {handlePrivacyClick}>Privacy</button>
 			{showAbout && <div className = "aboutContainer">
 				<div className = "aboutInner">
-					<p>A side project of mine, built using React. I wanted to learn React, and I've always wanted to build a bill splitter that worked the way I wanted it to so here it is.</p>
+					<p>A side project of mine built using React. I wanted to learn React, and I've always wanted to build a bill splitter that worked the way I wanted it to so here it is.</p>
 					<p>Here's the GitHub repo: <a href="https://github.com/simon0h/Bill-Splitter">github.com/simon0h/Bill-Splitter</a></p>
 					<p>And here's my website: <a href="https://simonoh.me">simonoh.me</a></p>
 					<button className = "closeAbout" onClick = {handleAboutClick}>Close</button>
@@ -52,7 +40,7 @@ const BottomNavBar = () => {
 			</div>}
 			{showContact && <div className = "aboutContainer">
 				<div className = "aboutInner">
-					<p>Personal: <a href="mailto:simon.oh@hey.com">simon.oh@hey.com</a></p>
+					<p>Personal: <a href="mailto:email@simonoh.me">email@simonoh.me</a></p>
 					<p>School: <a href="mailto:simonoh@nyu.edu">simonoh@nyu.edu</a></p>
 					<button className = "closeAbout" onClick = {handleContactClick}>Close</button>
 				</div>
