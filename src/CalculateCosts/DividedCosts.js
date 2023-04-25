@@ -62,7 +62,9 @@ const DividedCosts = (props) => {
 		for (let i in props.itemEatenBy_All) {
 			for (let ii in props.itemEatenBy_All[i]["peopleID"]) {
 				let personID = props.itemEatenBy_All[i]["peopleID"][ii];
-				tempAllInvoices[personID].push(props.itemEatenBy_All[i]["itemID"]);
+				if (personID in tempAllInvoices) {
+					tempAllInvoices[personID].push(props.itemEatenBy_All[i]["itemID"]);
+				}
 			}
 		}
 		return tempAllInvoices;
@@ -93,10 +95,13 @@ const DividedCosts = (props) => {
 		for (let i in props.itemEatenBy_All) {
 			for (let ii in props.itemEatenBy_All[i]["peopleID"]) {
 				let personID = props.itemEatenBy_All[i]["peopleID"][ii];
-				tempAllInvoices[personID].push(props.itemEatenBy_All[i]["itemID"]);
+				if (personID in tempAllInvoices) {
+					tempAllInvoices[personID].push(props.itemEatenBy_All[i]["itemID"]);
+				}
 			}
 			tempSharedItem[props.itemEatenBy_All[i]["itemID"]] = props.itemEatenBy_All[i]["peopleID"].length;
 		}
+		console.log(tempAllInvoices);
 		setSharedItems(tempSharedItem);
 		let invoiceArray = [];
 		for (let i in tempAllInvoices) {
