@@ -109,6 +109,15 @@ const App = () => {
 		setNumPeople(numPeople - 1);
 		const newList = people.filter((person) => person.id !== id);
     	setPerson(newList);
+    	removePersonItemEatenBy_All(id);
+	}
+
+	const removePersonItemEatenBy_All = (personID) => {
+		const newItemEatenBy_All = itemEatenBy_All.map((obj) => {
+			let tempArray = (obj.peopleID).filter((person) => person !== personID);
+			return {itemID: obj.itemID, peopleID: tempArray};
+		});
+		setItemEatenBy_All(newItemEatenBy_All);
 	}
 
 	const matchItemEatenBy_All = (itemID, thisItemEatenBy) => {

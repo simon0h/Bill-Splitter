@@ -101,7 +101,6 @@ const DividedCosts = (props) => {
 			}
 			tempSharedItem[props.itemEatenBy_All[i]["itemID"]] = props.itemEatenBy_All[i]["peopleID"].length;
 		}
-		console.log(tempAllInvoices);
 		setSharedItems(tempSharedItem);
 		let invoiceArray = [];
 		for (let i in tempAllInvoices) {
@@ -112,7 +111,10 @@ const DividedCosts = (props) => {
 			let owes = 0;
 			for (let ii in tempAllInvoices[i]) {
 				let itemID = tempAllInvoices[i][ii];
-				let itemPrice = tempItemObj[itemID][1] / tempSharedItem[itemID];
+				let itemPrice = 0;
+				if (itemID in tempItemObj) {
+					itemPrice = tempItemObj[itemID][1] / tempSharedItem[itemID];
+				}
 				owes += itemPrice;
 			}
 			if (props.splitTaxEvenly) {
@@ -138,6 +140,9 @@ const DividedCosts = (props) => {
 					tip = (props.totalTip * (owes / props.totalFoodCost));
 					owes += tip;
 				}
+			}
+			if (tax === 69 || tip === 69 || owes === 69) {
+				console.log("nice");
 			}
 			tempTaxAndTip[personID] = [truncateDecimal(tax), truncateDecimal(tip)];
 			setTaxAndTip(tempTaxAndTip);
