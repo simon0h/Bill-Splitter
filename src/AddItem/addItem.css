@@ -37,13 +37,18 @@
 	font-size: 1.2em;
 	margin-top: 10px;
 	margin-bottom: 8px;
+	margin-left: auto;
+	margin-right: auto;
 	padding-top: 7px;
 	padding-bottom: 4px;
 	padding-left: 12px;
 	padding-right: 12px;
 	cursor: pointer;
-	position: relative;
-	left: 40%;
+	margin-top: 1em;
+  	position: relative;
+  	left: 50%;
+  	-ms-transform: translateX(-50%);
+  	transform: translateX(-50%);
 }
 
 .addItemButton button:hover {

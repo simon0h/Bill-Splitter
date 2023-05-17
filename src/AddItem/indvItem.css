@@ -4,7 +4,7 @@
 	width: fit-content;
 	text-align: center;
 	margin: auto;
-	margin-top: 23px;
+	margin-top: 10px;
 	margin-bottom: 10px;
 	font-size: 1.3em;
 	min-width: 100px;
@@ -29,12 +29,12 @@
 	min-width: 100px;
 }
 
-.name {
+.itemName {
 	border-top-left-radius: 6px;
 	border-top-right-radius: 6px;
 	padding-left: 1.5em;
 	padding-right: 1.5em;
-	padding-top: 1.2em;
+	padding-top: 0.5em;
 	padding-bottom: 0.2em;
 	height: fit-content;
 	font-weight: 600;

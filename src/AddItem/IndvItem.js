@@ -50,7 +50,7 @@ const Item = (props) => {
 		return (
 			<li>
 				<div className = "indvItemMore">
-					<div className = "name">{truncateName(props.name, 40)}</div>
+					<div className = "itemName">{truncateName(props.name, 40)}</div>
 					<div className = "price">{"$" + props.price}</div>
 					<div className = "less">
 						<button onClick = {showMoreHandler}><IoClose/></button>
@@ -71,7 +71,7 @@ const Item = (props) => {
  	return (
     	<li>
 			<div className = "indvItem">
-				<div className = "name">{truncateName(props.name, 19)}</div>
+				<div className = "itemName">{truncateName(props.name, 19)}</div>
 				<div className = "price">{"$" + props.price}</div>
 				<div className = "more">
 					<button onClick = {showMoreHandler}><BsThreeDots/></button>

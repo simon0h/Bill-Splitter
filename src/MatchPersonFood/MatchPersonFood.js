@@ -25,9 +25,10 @@ const MatchPersonFood = (props) => {
 			<button className = "matchHelp" onClick = {handleMatchHelpClick}>Help</button>
 			{showHelp && <div className = "aboutContainer">
 				<div className = "aboutInner">
-					<p>Click on the name of the people who ate or shared the corresponding food.</p>
-					<p>In the example below, <i>John</i> and <i>Jane</i> shared the <i>fries</i>.</p>
-					<p>However, only <i>Jane</i> ate the <i>burger</i>.</p>
+					<p>Click on one name if only one person ate that dish.</p>
+					<p>Click on multiple names if multiple people shared that dish.</p>
+					<p>In the example below, <span class="emphasize">John and Jane <u>shared</u> the fries</span>.</p>
+					<p>However, <span class="emphasize"><u>only</u> Jane ate the burger</span>.</p>
 					<div className = "indvMatchPersonFood">
 						<div className = "matchName">Fries costs:</div>
 						<div className = "matchPrice">$4.50</div>
@@ -64,9 +65,9 @@ const MatchPersonFood = (props) => {
 			{props.items && props.items.map((item) => (
 				<div className = "indvMatchPersonFood">
 					<li key = {item.id}>
-						<div className = "matchName">{truncateName(item.name, 19)} costs:</div>
-						<div className = "matchPrice">${item.price}</div>
-						<div className = "matchDescription">and was eaten by:</div>
+						<div className = "matchName">{truncateName(item.name, 19)}</div>
+						<div className = "matchPrice">Price: ${item.price}</div>
+						<div className = "matchDescription">Eaten by:</div>
 						<ChooseWhoAte
 							key = {item.id}
 							itemID = {item.id}
