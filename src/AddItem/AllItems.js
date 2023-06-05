@@ -1,5 +1,5 @@
 import React from "react";
-import Item from "./IndvItem";
+import IndvItem from "./IndvItem";
 
 import './allItems.css';
 
@@ -16,7 +16,7 @@ const allItems = (props) => {
 	return (
 		<ul className = "allItems">
 			{props.items && props.items.map((item) =>
-				(<Item
+				(<IndvItem
 					key = {item.id}
 					name = {item.name}
 					price = {item.price}

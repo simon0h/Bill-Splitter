@@ -46,6 +46,7 @@ const EditItem = (props) => {
 					</div>
 					<div className = "item">
 						<input
+							class = "edit"
 							type = "text"
 							value = {newName}
 							onChange = {itemNameChangeHandler}
@@ -56,6 +57,7 @@ const EditItem = (props) => {
 					</div>
 					<div className = "item">
 						<input
+							class = "edit"
 							type = "number"
 							value = {newPrice}
 							onChange = {itemPriceChangeHandler}

@@ -8,7 +8,6 @@ import "./indvItem.css"
 
 const Item = (props) => {
 	const [editItemOn, setEditItemOn] = useState(false);
-	const [showMore, setShowMore] = useState(false);
 
 	const truncateName = (name, length) => {
 		if (name.length > length) {
@@ -29,10 +28,6 @@ const Item = (props) => {
 		props.removeItem(props.id, props.price);
 	}
 
-	const showMoreHandler = () => {
-		setShowMore(!showMore);
-	}
-
 	if (editItemOn) {
 		return (
 			<EditItem
@@ -46,35 +41,13 @@ const Item = (props) => {
 		);
 	}
 
-	if (showMore) {
-		return (
-			<li>
-				<div className = "indvItemMore">
-					<div className = "itemName">{truncateName(props.name, 40)}</div>
-					<div className = "price">{"$" + props.price}</div>
-					<div className = "less">
-						<button onClick = {showMoreHandler}><IoClose/></button>
-					</div>
-					<div className = "actionButtons">
-						<div className = "remove">
-							<button onClick = {removeItemHandler}><FaTrash/></button>
-						</div>
-						<div className = "edit">
-							<button onClick = {editItemHandler}><FaPen/></button>
-						</div>
-					</div>
-				</div>
-			</li>
-		);
-	}
-
  	return (
     	<li>
 			<div className = "indvItem">
 				<div className = "itemName">{truncateName(props.name, 19)}</div>
 				<div className = "price">{"$" + props.price}</div>
 				<div className = "more">
-					<button onClick = {showMoreHandler}><BsThreeDots/></button>
+					<button onClick = {editItemHandler}><BsThreeDots/></button>
 				</div>
 			</div>
     	</li>

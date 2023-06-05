@@ -13,6 +13,10 @@
     min-width: 100px;
 }
 
+.edit {
+    padding-left: 0.8em;
+}
+
 .cancelChanges button {
     background-color: inherit;
     border-radius: 6px;

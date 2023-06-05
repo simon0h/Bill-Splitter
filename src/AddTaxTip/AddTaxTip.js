@@ -69,7 +69,15 @@ const AddTaxTip = (props) => {
 
 	const submitHandler = (event) => {
 		event.preventDefault();
-		props.setTaxTip({tax: truncateDecimal(event.target[0].value), tip: truncateDecimal(event.target[2].value)});
+		let newTax = event.target[0].value;
+		let newTip = event.target[2].value;
+		if (newTax == 0) {
+			newTax = tax;
+		}
+		if (newTip == 0) {
+			newTip = tip;
+		}
+		props.setTaxTip({tax: truncateDecimal(newTax), tip: truncateDecimal(newTip)});
 		props.setInputTaxAsPercent(inputTaxAsPercent);
 		props.setInputTipAsPercent(inputTipAsPercent);
 	}
