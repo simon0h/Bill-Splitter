@@ -39,6 +39,27 @@ hr {
 	background-color: rgb(220, 93, 0);
 }
 
+.exportText button{
+	background-color: rgb(248, 144, 68);
+	border-radius: 6px;
+	color: white;
+	display: inline-block;
+	border: none;
+	font-size: 1em;
+	margin-top: 15px;
+	margin-bottom: 15px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	padding-left: 7px;
+	padding-right: 7px;
+	cursor: pointer;
+}
+
+.exportText button:hover{
+	box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+	background-color: rgb(220, 93, 0);
+}
+
 .ate {
 	margin-top: 10px;
 	margin-bottom: 15px;

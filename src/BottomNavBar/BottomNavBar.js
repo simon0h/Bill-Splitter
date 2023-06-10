@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./BottomNavBar.css"
+import { FaTimes } from "react-icons/fa";
 
 const BottomNavBar = () => {
 
@@ -35,20 +36,20 @@ const BottomNavBar = () => {
 					<p>A side project of mine built using React. I wanted to learn React, and I've always wanted to build a bill splitter that worked the way I wanted it to so here it is.</p>
 					<p>Here's the GitHub repo: <a href="https://github.com/simon0h/Bill-Splitter">github.com/simon0h/Bill-Splitter</a></p>
 					<p>And here's my website: <a href="https://simonoh.me">simonoh.me</a></p>
-					<button className = "closeAbout" onClick = {handleAboutClick}>Close</button>
+					<button className = "closeAbout" onClick = {handleAboutClick}><FaTimes/></button>
 				</div>
 			</div>}
 			{showContact && <div className = "aboutContainer">
 				<div className = "aboutInner">
 					<p>Personal: <a href="mailto:email@simonoh.me">email@simonoh.me</a></p>
 					<p>School: <a href="mailto:simonoh@nyu.edu">simonoh@nyu.edu</a></p>
-					<button className = "closeAbout" onClick = {handleContactClick}>Close</button>
+					<button className = "closeAbout" onClick = {handleContactClick}><FaTimes/></button>
 				</div>
 			</div>}
 			{showPrivacy && <div className = "aboutContainer">
 				<div className = "aboutInner">
 					<p>I do not collect any data that you have entered.</p>
-					<button className = "closeAbout" onClick = {handlePrivacyClick}>Close</button>
+					<button className = "closeAbout" onClick = {handlePrivacyClick}><FaTimes/></button>
 				</div>
 			</div>}
 		</div>

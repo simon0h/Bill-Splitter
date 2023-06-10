@@ -7,6 +7,7 @@ import AllPeople from "./AddPerson/AllPeople";
 import MatchPersonFood from "./MatchPersonFood/MatchPersonFood";
 import CalculateCosts from "./CalculateCosts/CalculateCosts";
 import BottomNavBar from "./BottomNavBar/BottomNavBar";
+import CheckTop from "./CheckTop/CheckTop";
 import "./App.css";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 
@@ -32,6 +33,8 @@ const App = () => {
 
 	const [splitTipEvenly, setSplitTipEvenly] = useState(true);
 	const [splitTaxEvenly, setSplitTaxEvenly] = useState(true);
+
+	const [hideCheckTop, setHideCheckTop] = useState(false);
 
 	const addNewItem = (newItem) => {
 		setTotalFoodCost(prevState => prevState + newItem.price);
@@ -143,6 +146,9 @@ const App = () => {
 	if (screen === 0) {
 		return (
 	    	<div className="App">
+	    		<div className = "singleButton">
+	    			<button type = "submit" onClick = {nextScreen}><FaArrowRight/></button>
+				</div>
 	    		<AddTaxTip
 	    			taxTip = {taxTip}
 	    			setTaxTip = {setTaxTip}
@@ -161,9 +167,11 @@ const App = () => {
 	    			editItem = {editItem}
 	    			removeItem = {removeItem}
 	    		/>
-				<div className = "singleButton">
-	    			<button type = "submit" onClick = {nextScreen}><FaArrowRight/></button>
-				</div>
+	    		<CheckTop
+	    			navButtonType = {"next"}
+	    			hideCheckTop = {hideCheckTop}
+	    			setHideCheckTop = {setHideCheckTop}
+	    		/>
 				<BottomNavBar/>
 	    	</div>
 		);
@@ -172,6 +180,14 @@ const App = () => {
 	else if (screen === 1) {
 		return (
 	    	<div className="App">
+	    		<div className = "doubleButton">
+					<div className = "back">
+	    				<button type = "submit" onClick = {prevScreen}><FaArrowLeft/></button>
+					</div>
+					<div className = "next">
+	    				<button type = "submit" onClick = {nextScreen}><FaArrowRight/></button>
+					</div>
+				</div>
     			<AddPerson
     				onAddPerson = {addNewPerson}
     				personID = {personID}
@@ -182,14 +198,11 @@ const App = () => {
     				editPerson = {editPerson}
     				removePerson = {removePerson}
     			/>
-				<div className = "doubleButton">
-					<div className = "back">
-	    				<button type = "submit" onClick = {prevScreen}><FaArrowLeft/></button>
-					</div>
-					<div className = "next">
-	    				<button type = "submit" onClick = {nextScreen}><FaArrowRight/></button>
-					</div>
-				</div>
+    			<CheckTop
+	    			navButtonType = {"both"}
+	    			hideCheckTop = {hideCheckTop}
+	    			setHideCheckTop = {setHideCheckTop}
+	    		/>
 				<BottomNavBar/>
 	    	</div>
 		);
@@ -198,13 +211,7 @@ const App = () => {
 	else if (screen === 2) {
 		return (
 	    	<div className="App">
-    			<MatchPersonFood
-    				items = {items}
-    				people = {people}
-    				itemEatenBy_All = {itemEatenBy_All}
-    				matchItemEatenBy_All = {matchItemEatenBy_All}
-    			/>
-				<div className = "doubleButton">
+	    		<div className = "doubleButton">
 					<div className = "back">
 	    				<button type = "submit" onClick = {prevScreen}><FaArrowLeft/></button>
 					</div>
@@ -212,6 +219,17 @@ const App = () => {
 	    				<button type = "submit" onClick = {nextScreen}><FaArrowRight/></button>
 					</div>
 				</div>
+    			<MatchPersonFood
+    				items = {items}
+    				people = {people}
+    				itemEatenBy_All = {itemEatenBy_All}
+    				matchItemEatenBy_All = {matchItemEatenBy_All}
+    			/>
+    			<CheckTop
+	    			navButtonType = {"both"}
+	    			hideCheckTop = {hideCheckTop}
+	    			setHideCheckTop = {setHideCheckTop}
+	    		/>
 				<BottomNavBar/>
 	    	</div>
 		);
@@ -220,6 +238,9 @@ const App = () => {
 	else {
 		return (
 	    	<div className="App">
+	    		<div className = "singleButton">
+	    			<button type = "submit" onClick = {prevScreen}><FaArrowLeft/></button>
+	    		</div>
     			<CalculateCosts
     				items = {items}
 					people = {people}
@@ -233,9 +254,11 @@ const App = () => {
 					setSplitTaxEvenly = {setSplitTaxEvenly}
 					setSplitTipEvenly = {setSplitTipEvenly}
     			/>
-				<div className = "singleButton">
-	    			<button type = "submit" onClick = {prevScreen}><FaArrowLeft/></button>
-	    		</div>
+    			<CheckTop
+	    			navButtonType = {"prev"}
+	    			hideCheckTop = {hideCheckTop}
+	    			setHideCheckTop = {setHideCheckTop}
+	    		/>
 	    		<BottomNavBar/>
 			</div>
 		);

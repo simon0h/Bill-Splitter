@@ -149,7 +149,6 @@ const DividedCosts = (props) => {
 			invoice["owes"] = owes;
 			invoiceArray.push(invoice);
 		}
-		console.log(invoiceArray);
 		return invoiceArray;
 	}
 
@@ -186,6 +185,9 @@ const DividedCosts = (props) => {
 				<div className = "moreDetail">
 					<button onClick = {showMore}><BiChevronDown/></button>
 				</div>
+{/*				<div className = "exportText">
+					<button>Export as text</button>
+				</div>*/}
 			</div>
 		);
 	}

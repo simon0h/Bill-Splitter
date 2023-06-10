@@ -63,8 +63,8 @@ const AddTaxTip = (props) => {
 	const saveClickHandler = (event) => {
 		setIsAlertVisible(true);
 		setTimeout(() => {
-			setIsAlertVisible(false);
-		}, 1800);
+			setIsAlertVisible(false);},
+			1800);
 	}
 
 	const submitHandler = (event) => {
