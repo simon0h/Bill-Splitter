@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./bottomNavBar.css"
+import "./BottomNavBar.css"
 import { FaTimes } from "react-icons/fa";
 
 const BottomNavBar = () => {
