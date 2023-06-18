@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import ChooseWhoAte from "./ChooseWhoAte";
 
 import './indvButton.css';
-import "../BottomNavBar/BottomNavBar.css"
+import "../BottomNavBar/bottomNavBar.css"
 
 const MatchPersonFood = (props) => {
 
@@ -20,7 +20,7 @@ const MatchPersonFood = (props) => {
 	}
 
 	return (
-		<ul className = "allItems">
+		<div className = "allItems">
 			<div className = "addPersonTitle">Match people with the food they ate</div>
 			<button className = "matchHelp" onClick = {handleMatchHelpClick}>Help</button>
 			{showHelp && <div className = "aboutContainer">
@@ -63,8 +63,8 @@ const MatchPersonFood = (props) => {
 				</div>
 			</div>}
 			{props.items && props.items.map((item) => (
-				<div className = "indvMatchPersonFood">
-					<li key = {item.id}>
+				<li key = {item.id}>
+					<div className = "indvMatchPersonFood">
 						<div className = "matchName">{truncateName(item.name, 19)}</div>
 						<div className = "matchPrice">Price: ${item.price}</div>
 						<div className = "matchDescription">Eaten by:</div>
@@ -75,10 +75,10 @@ const MatchPersonFood = (props) => {
 							matchItemEatenBy_All = {props.matchItemEatenBy_All}
 							itemEatenBy_All = {props.itemEatenBy_All}
 						/>
-					</li>
-				</div>)
+					</div>
+				</li>)
 			)}
-		</ul>
+		</div>
 	);
 }
 

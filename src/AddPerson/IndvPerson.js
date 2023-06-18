@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import EditPerson from "./EditPerson";
+import { BsThreeDots } from "react-icons/bs";
 import { FaTrash, FaPen } from "react-icons/fa";
 
 import "./indvPerson.css"
@@ -38,19 +39,14 @@ const Person = (props) => {
 	}
 
 	return (
-	<li>
-		<div className = "indvPerson">
-			<div className = "name">{truncateName(props.name, 19)}</div>
-			<div className = "actionButtons">
-				<div className = "remove">
-					<button onClick = {removePersonHandler}><FaTrash/></button>
-				</div>
-				<div className = "edit">
-					<button onClick = {editPersonHandler}><FaPen/></button>
+		<li>
+			<div className = "indvPerson">
+				<div className = "name">{truncateName(props.name, 19)}</div>
+				<div className = "more">
+					<button onClick = {editPersonHandler}><BsThreeDots/></button>
 				</div>
 			</div>
-		</div>
-	</li>
+		</li>
 	);
 }
 

@@ -1,12 +1,15 @@
 import React , { useState } from "react";
 import DividedCosts from "./DividedCosts";
+import { FiShare } from "react-icons/fi";
+import { BsThreeDots } from "react-icons/bs";
 
 import "./calculateCosts.css";
 
 const CalculateCosts = (props) => {
 
-	const[refresh, setRefresh] = useState("");
-	const[subtotalBlankSpace, setSubtotalBlankSpace] = useState("");
+	const [refresh, setRefresh] = useState("");
+	const [subtotalBlankSpace, setSubtotalBlankSpace] = useState("");
+	const [showSplitEvenlyToggle, setShowSplitEvenlyToggle] = useState(false);
 
 	const truncateDecimal = (num) => {
 		return (Math.floor(num * 100) / 100);
@@ -108,10 +111,22 @@ const CalculateCosts = (props) => {
 		props.setSplitTipEvenly(!props.splitTipEvenly);
 	}
 
+	const handleShowSplitEvenlyToggle = () => {
+		setShowSplitEvenlyToggle(!showSplitEvenlyToggle);
+	}
+
 	return (
 		<div className = "calculateCosts">
-			<div className = "displayTax">
+			<div className = "displayTandT">
 				Tax: ${totalTax} {showPercentage(props.taxTip.tax, totalTax, props.inputTaxAsPercent)}
+			</div>
+			<div className = "displayTandT">
+				Tip: ${totalTip} {showPercentage(props.taxTip.tip, totalTip, props.inputTipAsPercent)}
+			</div>
+			<div className = "showSplitEvenlyToggleButton">
+				<button onClick = {handleShowSplitEvenlyToggle}><BsThreeDots/></button>
+			</div>
+			{showSplitEvenlyToggle && <div className = "splitEvenlyToggle">
 				<div className = "textAndToggle">
 					<div className = "toggleLable">Don't split tax evenly </div>
 					<label className = "switch">
@@ -119,9 +134,6 @@ const CalculateCosts = (props) => {
 						<span className = "slider round"></span>
 					</label>
 				</div>
-			</div>
-			<div className = "displayTip">
-				Tip: ${totalTip} {showPercentage(props.taxTip.tip, totalTip, props.inputTipAsPercent)}
 				<div className = "textAndToggle">
 					<div className = "toggleLable">Don't split tip evenly </div>
 					<label className = "switch">
@@ -129,9 +141,8 @@ const CalculateCosts = (props) => {
 						<span className = "slider round"></span>
 					</label>
 				</div>
-			</div>
+			</div>}
 			<div className = "cost">Cost of food: ${truncateDecimal(props.totalFoodCost)}{/*{costBlankSpace}*/}</div>
-			<hr/>
 			<div className = "subtotal">Subtotal: ${truncateDecimal(totalTax + totalTip + props.totalFoodCost)}</div>
 			<DividedCosts
 				key = {refresh}
@@ -144,6 +155,9 @@ const CalculateCosts = (props) => {
 				splitTaxEvenly = {props.splitTaxEvenly}
 				splitTipEvenly = {props.splitTipEvenly}
 			/>
+{/*			<div className = "exportText">
+				<button><FiShare/></button>
+			</div>*/}
 		</div>
 	);
 }

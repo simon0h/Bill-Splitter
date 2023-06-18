@@ -146,8 +146,10 @@ const App = () => {
 	if (screen === 0) {
 		return (
 	    	<div className="App">
-	    		<div className = "singleButton">
-	    			<button type = "submit" onClick = {nextScreen}><FaArrowRight/></button>
+	    		<div className = "singleButtonNext">
+	    			<div className = "next">
+	    				<button type = "submit" onClick = {nextScreen}><FaArrowRight/></button>
+	    			</div>
 				</div>
 	    		<AddTaxTip
 	    			taxTip = {taxTip}
@@ -198,11 +200,6 @@ const App = () => {
     				editPerson = {editPerson}
     				removePerson = {removePerson}
     			/>
-    			<CheckTop
-	    			navButtonType = {"both"}
-	    			hideCheckTop = {hideCheckTop}
-	    			setHideCheckTop = {setHideCheckTop}
-	    		/>
 				<BottomNavBar/>
 	    	</div>
 		);
@@ -225,11 +222,6 @@ const App = () => {
     				itemEatenBy_All = {itemEatenBy_All}
     				matchItemEatenBy_All = {matchItemEatenBy_All}
     			/>
-    			<CheckTop
-	    			navButtonType = {"both"}
-	    			hideCheckTop = {hideCheckTop}
-	    			setHideCheckTop = {setHideCheckTop}
-	    		/>
 				<BottomNavBar/>
 	    	</div>
 		);
@@ -238,8 +230,10 @@ const App = () => {
 	else {
 		return (
 	    	<div className="App">
-	    		<div className = "singleButton">
-	    			<button type = "submit" onClick = {prevScreen}><FaArrowLeft/></button>
+		    	<div className = "singleButtonBack">
+		    		<div className = "back">
+		    			<button type = "submit" onClick = {prevScreen}><FaArrowLeft/></button>
+		    		</div>
 	    		</div>
     			<CalculateCosts
     				items = {items}
@@ -254,11 +248,6 @@ const App = () => {
 					setSplitTaxEvenly = {setSplitTaxEvenly}
 					setSplitTipEvenly = {setSplitTipEvenly}
     			/>
-    			<CheckTop
-	    			navButtonType = {"prev"}
-	    			hideCheckTop = {hideCheckTop}
-	    			setHideCheckTop = {setHideCheckTop}
-	    		/>
 	    		<BottomNavBar/>
 			</div>
 		);

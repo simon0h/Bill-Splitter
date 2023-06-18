@@ -50,8 +50,8 @@
 	display: inline-block;
 	border: none;
 	font-size: 1.2em;
-	margin-top: 6px;
-	margin-bottom: 6px;
+	margin-top: 3px;
+	margin-bottom: 3px;
 	padding: 0px;
 	text-align: center;
 	cursor: pointer;
@@ -64,7 +64,7 @@
 	width: 1em;
 	border-radius: 50%;
 	background-color: rgb(195, 195, 195);
-	margin-bottom: 11px;
+	margin-bottom: 12px;
 	box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
 }
 

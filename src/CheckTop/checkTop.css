@@ -1,6 +1,7 @@
 .tip {
     display: inline-block;
-    padding: 8px 16px;
+    padding: 2px 6px;
+    padding-bottom: 6px;
     border-radius: 6px;
     color: black;
     z-index: 1;
@@ -11,6 +12,7 @@
     width: 14em;
     font-size: 0.9em;
     max-width: 75vw;
+    animation: fade 2s linear;
 }
 
 .closeTip {
@@ -21,6 +23,7 @@
     border: none;
     background: none;
     font-size: 0.9em;
+    color: grey;
 }
 
 .closeTip:hover {

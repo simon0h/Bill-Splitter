@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { BiChevronDown, BiChevronUp } from "react-icons/bi";
+import { FiChevronsDown } from "react-icons/fi";
 
 import "./dividedCosts.css";
 
@@ -177,17 +178,18 @@ const DividedCosts = (props) => {
 	if (!showMoreDetail) {
 		return (
 			<div className = "dividedCosts">
+				{thisPersonOwesDetail.length > 0 &&
+					<hr/>
+				}
 				{thisPersonOwes && thisPersonOwes.map((person) => (
 					<li key = {person.id}>
 						<div className = "personOwes">{truncateName(person.name, 15)} owes ${person.owes}</div>
 					</li>)
 				)}
+				{thisPersonOwesDetail.length > 0 && 
 				<div className = "moreDetail">
 					<button onClick = {showMore}><BiChevronDown/></button>
-				</div>
-{/*				<div className = "exportText">
-					<button>Export as text</button>
-				</div>*/}
+				</div>}
 			</div>
 		);
 	}
@@ -195,6 +197,7 @@ const DividedCosts = (props) => {
 	else {
 		return (
 			<div className = "dividedCosts">
+				<hr/>
 				{thisPersonOwes && thisPersonOwes.map((person) => (
 					<li key = {person.id}>
 						<div className = "personOwes">{truncateName(person.name, 15)} owes ${person.owes}</div>

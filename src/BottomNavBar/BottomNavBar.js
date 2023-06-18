@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./BottomNavBar.css"
+import "./bottomNavBar.css"
 import { FaTimes } from "react-icons/fa";
 
 const BottomNavBar = () => {
@@ -31,7 +31,7 @@ const BottomNavBar = () => {
 			<button className = "about" onClick = {handleAboutClick}>About</button>
 			<button className = "about" onClick = {handleContactClick}>Contact</button>
 			<button className = "about" onClick = {handlePrivacyClick}>Privacy</button>
-			{showAbout && <div className = "aboutContainer">
+			{showAbout && <div className = "aboutContainer"> {/*If showAbout == true, execute the rest*/}
 				<div className = "aboutInner">
 					<p>A side project of mine built using React. I wanted to learn React, and I've always wanted to build a bill splitter that worked the way I wanted it to so here it is.</p>
 					<p>Here's the GitHub repo: <a href="https://github.com/simon0h/Bill-Splitter">github.com/simon0h/Bill-Splitter</a></p>
