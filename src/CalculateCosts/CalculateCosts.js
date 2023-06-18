@@ -1,6 +1,5 @@
 import React , { useState } from "react";
 import DividedCosts from "./DividedCosts";
-import { FiShare } from "react-icons/fi";
 import { BsThreeDots } from "react-icons/bs";
 
 import "./calculateCosts.css";

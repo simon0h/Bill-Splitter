@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import EditPerson from "./EditPerson";
 import { BsThreeDots } from "react-icons/bs";
-import { FaTrash, FaPen } from "react-icons/fa";
 
 import "./indvPerson.css"
 

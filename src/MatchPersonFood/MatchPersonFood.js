@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import ChooseWhoAte from "./ChooseWhoAte";
 
 import './indvButton.css';
-import "../BottomNavBar/bottomNavBar.css"
 
 const MatchPersonFood = (props) => {
 
@@ -27,8 +26,8 @@ const MatchPersonFood = (props) => {
 				<div className = "aboutInner">
 					<p>Click on one name if only one person ate that dish.</p>
 					<p>Click on multiple names if multiple people shared that dish.</p>
-					<p>In the example below, <span class="emphasize">John and Jane <u>shared</u> the fries</span>.</p>
-					<p>However, <span class="emphasize"><u>only</u> Jane ate the burger</span>.</p>
+					<p>In the example below, <span className = "emphasize">John and Jane <u>shared</u> the fries</span>.</p>
+					<p>However, <span className = "emphasize"><u>only</u> Jane ate the burger</span>.</p>
 					<div className = "indvMatchPersonFood">
 						<div className = "matchName">Fries costs:</div>
 						<div className = "matchPrice">$4.50</div>

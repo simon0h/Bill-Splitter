@@ -4,10 +4,10 @@ import { FaTimes } from "react-icons/fa";
 
 const CheckTop = (props) => {
 	let pageText = "";
-	if (props.navButtonType == "next") {
+	if (props.navButtonType === "next") {
 		pageText = "next";
 	}
-	else if (props.navButtonType == "prev") {
+	else if (props.navButtonType === "prev") {
 		pageText = "previous";
 	}
 	else {
