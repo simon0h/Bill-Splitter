@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import './checkTop.css';
+import "./checkTop.css";
 import { FaTimes } from "react-icons/fa";
 
 const CheckTop = (props) => {
