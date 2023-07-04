@@ -26,7 +26,9 @@
     color: grey;
 }
 
-.closeTip:hover {
-	text-decoration: underline;
-    cursor: pointer;
+@media (hover: hover) and (pointer: fine) {
+    .closeTip:hover {
+    	text-decoration: underline;
+        cursor: pointer;
+    }
 }

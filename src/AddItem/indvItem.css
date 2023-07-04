@@ -58,14 +58,16 @@
 	outline: none;
 }
 
-.more button:hover {
-	color: rgb(24, 24, 24);
-	height: 1em;
-	width: 1em;
-	border-radius: 50%;
-	background-color: rgb(195, 195, 195);
-	margin-bottom: 12px;
-	box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+@media (hover: hover) and (pointer: fine) {
+	.more button:hover {
+		color: rgb(24, 24, 24);
+		height: 1em;
+		width: 1em;
+		border-radius: 50%;
+		background-color: rgb(195, 195, 195);
+		margin-bottom: 12px;
+		box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+	}
 }
 
 .less button {
@@ -82,15 +84,17 @@
 	cursor: pointer;
 }
 
-.less button:hover {
-	color: rgb(24, 24, 24);
-	height: 1em;
-	width: 1em;
-	border-radius: 50%;
-	background-color: rgb(195, 195, 195);
-	margin-bottom: 7px;
-	box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
-	font-weight: bold;
+@media (hover: hover) and (pointer: fine) {
+	.less button:hover {
+		color: rgb(24, 24, 24);
+		height: 1em;
+		width: 1em;
+		border-radius: 50%;
+		background-color: rgb(195, 195, 195);
+		margin-bottom: 7px;
+		box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+		font-weight: bold;
+	}
 }
 
 .actionButtons {
@@ -110,8 +114,10 @@
 	cursor: pointer;
 }
 
-.remove button:hover {
-	color: rgb(203, 0, 0);
+@media (hover: hover) and (pointer: fine) {
+	.remove button:hover {
+		color: rgb(203, 0, 0);
+	}
 }
 
 .edit button {
@@ -127,6 +133,8 @@
 	cursor: pointer;
 }
 
-.edit button:hover {
-	color: blue;
+@media (hover: hover) and (pointer: fine) {
+	.edit button:hover {
+		color: blue;
+	}
 }

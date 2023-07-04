@@ -13,9 +13,11 @@
     display: inline-block;
 }
 
-.matchHelp:hover {
-	text-decoration: underline;
-	cursor: pointer;
+@media (hover: hover) and (pointer: fine) {
+	.matchHelp:hover {
+		text-decoration: underline;
+		cursor: pointer;
+	}
 }
 
 .indvMatchPersonFood {
@@ -87,8 +89,10 @@
 	color: black;
 }
 
-.notSelected button:hover {
-	box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+@media (hover: hover) and (pointer: fine) {
+	.notSelected button:hover {
+		box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+	}
 }
 
 .selected button {
@@ -107,8 +111,10 @@
 	color: black;
 }
 
-.selected button:hover {
-	box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+@media (hover: hover) and (pointer: fine) {
+	.selected button:hover {
+		box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+	}
 }
 
 .emphasize {

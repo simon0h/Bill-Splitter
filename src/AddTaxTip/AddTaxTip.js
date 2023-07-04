@@ -61,25 +61,32 @@ const AddTaxTip = (props) => {
 	}
 
 	const saveClickHandler = (event) => {
-		setIsAlertVisible(true);
-		setTimeout(() => {
-			setIsAlertVisible(false);},
-			1800);
+		// setIsAlertVisible(true);
+		// setTimeout(() => {
+		// 	setIsAlertVisible(false);},
+		// 	1800);
 	}
 
 	const submitHandler = (event) => {
 		event.preventDefault();
-		let newTax = event.target[0].value;
-		let newTip = event.target[2].value;
-		if (newTax == 0) {
-			newTax = tax;
+		if ((event.target[0].value !== null && event.target[0].value !== "") || (event.target[2].value !== null && event.target[2].value !== "")) {
+			setIsAlertVisible(true);
+			setTimeout(() => {
+				setIsAlertVisible(false);},
+				1800);
+			let newTax = event.target[0].value;
+			let newTip = event.target[2].value;
+			if (newTax === 0) {
+				newTax = tax;
+			}
+			if (newTip === 0) {
+				newTip = tip;
+			}
+			props.setTaxTip({tax: truncateDecimal(newTax), tip: truncateDecimal(newTip)});
+			props.setInputTaxAsPercent(inputTaxAsPercent);
+			props.setInputTipAsPercent(inputTipAsPercent);
 		}
-		if (newTip == 0) {
-			newTip = tip;
-		}
-		props.setTaxTip({tax: truncateDecimal(newTax), tip: truncateDecimal(newTip)});
-		props.setInputTaxAsPercent(inputTaxAsPercent);
-		props.setInputTipAsPercent(inputTipAsPercent);
+		//If no value, shake the save button
 	}
 
     return (

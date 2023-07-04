@@ -46,7 +46,9 @@
 	left: 38%;
 }
 
-.addPersonButton button:hover {
-  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
-  background-color: rgb(26, 126, 44);
+@media (hover: hover) and (pointer: fine) {
+	.addPersonButton button:hover {
+	  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+	  background-color: rgb(26, 126, 44);
+	}
 }

@@ -32,15 +32,17 @@
     float: left;
 }
 
-.cancelChanges button:hover {
-    color: rgb(24, 24, 24);
-    height: 1em;
-    width: 1em;
-    border-radius: 50%;
-    background-color: rgb(195, 195, 195);
-    margin-bottom: 20px;
-    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
-    font-weight: bold;
+@media (hover: hover) and (pointer: fine) {
+    .cancelChanges button:hover {
+        color: rgb(24, 24, 24);
+        height: 1em;
+        width: 1em;
+        border-radius: 50%;
+        background-color: rgb(195, 195, 195);
+        margin-bottom: 20px;
+        box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+        font-weight: bold;
+    }
 }
 
 .removeItem button {
@@ -59,10 +61,11 @@
     cursor: pointer;
     float: left;
 }
-
-.removeItem button:hover {
-    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
-    background-color: rgb(203, 0, 0);
+@media (hover: hover) and (pointer: fine) {
+    .removeItem button:hover {
+        box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+        background-color: rgb(203, 0, 0);
+    }
 }
 
 .saveChannges button {
@@ -82,7 +85,9 @@
     float: right;
 }
 
-.saveChannges button:hover {
-    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
-	background-color: rgb(7, 104, 173);
+@media (hover: hover) and (pointer: fine) {
+    .saveChannges button:hover {
+        box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+    	background-color: rgb(7, 104, 173);
+    }
 }

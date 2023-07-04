@@ -11,9 +11,11 @@
     display: inline-block;
 }
 
-.about:hover {
-    text-decoration: underline;
-    cursor: pointer;
+@media (hover: hover) and (pointer: fine) {
+    .about:hover {
+        text-decoration: underline;
+        cursor: pointer;
+    }
 }
 
 .closeAbout {
@@ -25,9 +27,11 @@
     color: grey;
 }
 
-.closeAbout:hover {
-    text-decoration: underline;
-    cursor: pointer;
+@media (hover: hover) and (pointer: fine) {
+    .closeAbout:hover {
+        text-decoration: underline;
+        cursor: pointer;
+    }
 }
 
 .aboutContainer {
