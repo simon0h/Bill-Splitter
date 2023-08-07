@@ -183,10 +183,10 @@ const DividedCosts = (props) => {
 				}
 				{thisPersonOwes && thisPersonOwes.map((person) => (
 					<li key = {person.id}>
-						<div className = "personOwes">{truncateName(person.name, 15)} owes ${person.owes}</div>
+						<div className = "personOwes">{truncateName(person.name, 15)} owes ${truncateDecimal(person.owes)}</div>
 					</li>)
 				)}
-				{thisPersonOwesDetail.length > 0 && 
+				{thisPersonOwesDetail.length > 0 &&
 				<div className = "moreDetail">
 					<button onClick = {showMore}><BiChevronDown/></button>
 				</div>}
